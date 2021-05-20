@@ -13,11 +13,6 @@
       <th>NIK</th>
       <th>Nama Mutasi</th>
       <th>L/P</th>
-      <!-- <th>Lahir</th>
-      <th>Usia</th>
-      <th>Pendidikan</th>
-      <th>Pekerjaan</th>
-      <th>Kawin</th> -->
       <th>Status</th>
       <th>Aksi</th>
     </tr>
@@ -27,13 +22,13 @@
     <?php foreach ($data_mutasi as $mutasi) : ?>
     <tr>
       <td><?php echo $nomor++ ?>.</td>
-      <td><?php echo $mutasi['nik_warga'] ?></td>
-      <td><?php echo $mutasi['nama_warga'] ?></td>
-      <td><?php echo $mutasi['jenis_kelamin_warga'] ?></td>
+      <td><?php echo $mutasi['nik'] ?></td>
+      <td><?php echo $mutasi['nama'] ?></td>
+      <td><?php echo $mutasi['jenis_kelamin'] ?></td>
       <!-- <td>
         <?php echo ($mutasi['tanggal_lahir_mutasi'] != '0000-00-00') ? date('d-m-Y', strtotime($mutasi['tanggal_lahir_mutasi'])) : ''?>
       </td> -->
-      <td><?php echo $mutasi['status_warga'] ?></td>
+      <td><?php echo $mutasi['status'] ?></td>
       <td>
         <!-- Single button -->
         <div class="btn-group pull-right">
@@ -41,20 +36,16 @@
           <span class="caret"></span>
           </button>
           <ul class="dropdown-menu pull-right" role="menu">
-            <li>
-              <a href="show.php?id_mutasi_masuk=<?php echo $mutasi['id_mutasi_masuk'] ?>"><i class="glyphicon glyphicon-sunglasses"></i> Detail</a>
-            </li>
+           
             <li>
               <a href="cetak-show.php?id_mutasi_masuk=<?php echo $mutasi['id_mutasi_masuk'] ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Cetak</a>
             </li>
-            <?php if ($_SESSION['user']['status_user'] != 'RW'): ?>
             <li class="divider"></li>
             <li>
               <a href="delete.php?id_mutasi_masuk=<?php echo $mutasi['id_mutasi_masuk'] ?>" onclick="return confirm('Yakin hapus data ini?')">
                 <i class="glyphicon glyphicon-trash"></i> Hapus
               </a>
             </li>
-            <?php endif; ?>
           </ul>
         </div>
       </td>
@@ -76,10 +67,10 @@
     <dt>Jumlah Perempuan</dt>
     <dd><?php echo $jumlah_mutasi_masuk_p['total'] ?> orang</dd>
 
-    <dt>Warga < 17 tahun</dt>
+    <dt>Penduduk < 17 tahun</dt>
     <dd><?php echo $jumlah_mutasi_masuk_kd_17['total'] ?> orang</dd>
 
-    <dt>Warga >= 17 tahun</dt>
+    <dt>Penduduk >= 17 tahun</dt>
     <dd><?php echo $jumlah_mutasi_masuk_ld_17['total'] ?> orang</dd>
   </dl>
 </div>

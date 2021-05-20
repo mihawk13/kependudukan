@@ -9,77 +9,63 @@ if (!isset($_SESSION['user'])) {
 include('../../config/koneksi.php');
 
 // ambil data dari form
-$id_pdd = htmlspecialchars($_POST['id_pdd']);
-$id_keluarga = htmlspecialchars($_POST['id_keluarga']);
-$nomor_keluarga = htmlspecialchars($_POST['nomor_keluarga']);
+$nik = htmlspecialchars($_POST['nik']);
+$nomor_kk = htmlspecialchars($_POST['nomor_kk']);
 $nama_kepala_keluarga = htmlspecialchars($_POST['nama_kepala_keluarga']);
-$tempat_lahir_warga = htmlspecialchars($_POST['tempat_lahir_warga']);
-$tanggal_lahir_warga = htmlspecialchars($_POST['tanggal_lahir_warga']);
-$jenis_kelamin_warga = htmlspecialchars($_POST['jk']);
-/*
-$alamat_warga = htmlspecialchars($_POST['alamat_warga']);
-$desa_kelurahan_warga = 'Dukuhdalem';
-$kecamatan_warga = 'Ciawi Gebang';
-$kabupaten_kota_warga = 'Kuningan';
-$provinsi_warga = 'Jawa Barat';
-$negara_warga = 'Indonesia';
-
-$agama_warga = htmlspecialchars($_POST['agama_warga']);
-$pendidikan_terakhir_warga = htmlspecialchars($_POST['pendidikan_terakhir_warga']);
-$pekerjaan_warga = htmlspecialchars($_POST['pekerjaan_warga']);
-$status_perkawinan_warga = htmlspecialchars($_POST['status_perkawinan_warga']);
-*/
-$dusun_warga = htmlspecialchars($_POST['dusun_warga']);
-$rt_warga = htmlspecialchars($_POST['rt_warga']);
-$rw_warga = htmlspecialchars($_POST['rw_warga']);
-$status_warga = 'Pindah Datang';
+$tempat_lahir = htmlspecialchars($_POST['tempat_lahir']);
+$tanggal_lahir = htmlspecialchars($_POST['tanggal_lahir']);
+$jenis_kelamin = htmlspecialchars($_POST['jk']);
+$agama = htmlspecialchars($_POST['agama']);
+$pendidikan_terakhir = htmlspecialchars($_POST['pendidikan_terakhir']);
+$pekerjaan = htmlspecialchars($_POST['pekerjaan']);
+$rt = htmlspecialchars($_POST['rt']);
+$rw = htmlspecialchars($_POST['rw']);
+$status = 'Kawin';
 $alamat_asal = htmlspecialchars($_POST['alamat_asal']);
 $tanggal_pindah = htmlspecialchars($_POST['tanggal_pindah']);
 $alasan_pindah = htmlspecialchars($_POST['alasan_pindah']);
 $jenis_kepindahan = htmlspecialchars($_POST['jenis_kepindahan']);
-$nik_sementara=uniqid();
 
-$id_user = $_SESSION['user']['id_user'];
-//cek nik warga dari database apakah ada atau tidak
-
-$query_cek="SELECT nomor_keluarga from kartu_keluarga where nomor_keluarga=$nomor_keluarga";
-$cek_nik=mysqli_num_rows(mysqli_query($db, $query_cek));
-if($cek_nik>0){
-  echo "<script>window.alert('Tambah warga gagal!, No. KK $nomor_keluarga sudah digunakan !'); history.back()</script>";
+$query_cek = "SELECT nomor_kk from kartu_keluarga where nomor_kk=$nomor_kk";
+$cek_nik = mysqli_num_rows(mysqli_query($db, $query_cek));
+if ($cek_nik > 0) {
+  echo "<script>window.alert('Tambah penduduk gagal!, No. KK $nomor_kk sudah digunakan !'); history.back()</script>";
 } else {
-  //echo "NIK belum digunakan :)";
-//}
 
+  //echo $query_cek;
+  // masukkan ke database
 
-//echo $query_cek;
-// masukkan ke database
+  $query = "INSERT INTO penduduk (nik, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat_ktp, alamat, desa_kelurahan, kecamatan, kabupaten_kota, provinsi, negara, rt, rw, agama, pendidikan_terakhir, pekerjaan, status) VALUES ('$nik', '$nama_kepala_keluarga', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$alamat_asal', '$alamat_asal', 'Wae Belang', 'Ruteng', 'Manggarai', 'Nusa Tenggara Timur', 'Indonesia', '$rt', '$rw', '$agama', '$pendidikan_terakhir', '$pekerjaan', '$status');";
+  $hasil = mysqli_query($db, $query);
+  //echo $query;
 
-$query_warga = "INSERT INTO warga (id_pdd, nik_warga, nama_warga, tempat_lahir_warga, tanggal_lahir_warga, jenis_kelamin_warga, alamat_ktp_warga, alamat_warga, desa_kelurahan_warga, kecamatan_warga, kabupaten_kota_warga, provinsi_warga, negara_warga, dusun_warga, rt_warga, rw_warga, agama_warga, pendidikan_terakhir_warga, pekerjaan_warga, status_warga, id_user, created_at, updated_at) VALUES (NULL, '$nik_sementara', '$nama_kepala_keluarga', '$tempat_lahir_warga', '$tanggal_lahir_warga', '$jenis_kelamin_warga', '$alamat_asal', '$alamat_asal', '-', '-', '-', '-', '-', '$dusun_warga', '$rt_warga', '$rw_warga','-','-','-',
-	'$status_warga', '$id_user', CURRENT_TIMESTAMP, '0000-00-00 00:00:00.000000');";
+  $query3 = "SELECT * FROM penduduk order by id_pdd DESC";
+  $hasil3 = mysqli_query($db, $query3);
+  $jum = mysqli_num_rows($hasil3);
+  $hasil4 = mysqli_fetch_array($hasil3);
+  $id_pdd = $hasil4['id_pdd'];
 
-//echo $query;
-
-$query_kk= "INSERT INTO kartu_keluarga (id_keluarga, nomor_keluarga, id_kepala_keluarga, alamat_keluarga, desa_kelurahan_keluarga, kecamatan_keluarga, kabupaten_kota_keluarga, provinsi_keluarga, negara_keluarga, rt_keluarga, rw_keluarga, kode_pos_keluarga, id_user, created_at, updated_at) VALUES ($id_keluarga, '$nomor_keluarga', '$id_pdd', '$alamat_asal', '-', '-', '-', '-', '-', '-', '-', '-', '$id_user', CURRENT_TIMESTAMP, '0000-00-00 00:00:00.000000');";
-
-  $query_mutasi = "INSERT INTO mutasi_masuk (id_mutasi_masuk,id_pdd, id_keluarga, dusun_masuk,rt_masuk,rw_masuk,alamat_asal,tanggal_pindah,alasan_pindah,jenis_kepindahan) VALUES(NULL, '$id_pdd','$id_keluarga','$dusun_warga','$rt_warga','$rw_warga','$alamat_asal','$tanggal_pindah','$alasan_pindah','$jenis_kepindahan');";
-  
-echo "<br>".$query_warga."<br>";
-echo "<br>".$query_kk."<br>";
-echo "<br>".$query_mutasi."<br>";
-
-
-  $hasil_warga = mysqli_query($db, $query_warga);
+  $query_kk = "INSERT INTO kartu_keluarga (nomor_kk, id_kepala_keluarga) VALUES ('$nomor_kk', '$id_pdd');";
   $hasil_kk = mysqli_query($db, $query_kk);
+
+  $query3 = "SELECT * FROM kartu_keluarga order by id_keluarga DESC";
+  $hasil3 = mysqli_query($db, $query3);
+  $jum = mysqli_num_rows($hasil3);
+  $hasil4 = mysqli_fetch_array($hasil3);
+  $id_keluarga = $hasil4['id_keluarga'];
+
+
+  // echo "<br>" . $id_pdd . "<br>";
+  // echo "<br>" . $id_keluarga . "<br>";
+
+
+  $query_mutasi = "INSERT INTO mutasi_masuk (id_pdd, id_kk, rt_masuk,rw_masuk,alamat_asal,tanggal_pindah,alasan_pindah,jenis_kepindahan) VALUES('$id_pdd','$id_keluarga','$rt','$rw','$alamat_asal','$tanggal_pindah','$alasan_pindah','$jenis_kepindahan');";
   $hasil = mysqli_query($db, $query_mutasi);
 
- //cek keberhasilan pendambahan data
+  //cek keberhasilan pendambahan data
   if ($hasil_kk == true) {
-     echo "<script>window.alert('Tambah mutasi berhasil'); window.location.href='../mutasi-datang/index.php'</script>";
-     # echo "<script>window.alert('Tambah mutasi berhasil');</script>";
+    echo "<script>window.alert('Tambah mutasi berhasil'); window.location.href='../mutasi-datang/index.php'</script>";
   } else {
-      echo "<script>window.alert('Tambah mutasi gagal!'); history.back()</script>";
-     #  echo "<script>window.alert('Tambah mutasi gagal!');</script>";
-      #echo mysqli_error($db);
+    echo "<script>window.alert('Tambah mutasi gagal!'); history.back()</script>";
   }
-
 }

@@ -28,7 +28,7 @@ class PDF extends FPDF
 
         $this->Ln(1);
 
-        $this->Cell(308,8,'LAPORAN DATA MUTASI WARGA',0,1,'C');
+        $this->Cell(308,8,'LAPORAN DATA MUTASI Penduduk',0,1,'C');
         $this->Ln(2);
 
         $this->SetFont('Times','B',9.5);
@@ -65,7 +65,7 @@ class PDF extends FPDF
 }
 
 // ambil dari database
-//$query = "SELECT *, TIMESTAMPDIFF(YEAR, `tanggal_lahir_warga`, CURDATE()) AS usia_mutasi FROM warga JOIN mutasi_masuk ON warga.nik_warga= mutasi_masuk.id_pdd";
+//$query = "SELECT *, TIMESTAMPDIFF(YEAR, `tanggal_lahir`, CURDATE()) AS usia_mutasi FROM penduduk JOIN mutasi_masuk ON penduduk.nik= mutasi_masuk.id_pdd";
 //$hasil = mysqli_query($db, $query);
 //$data_mutasi = array();
 //while ($row = mysqli_fetch_assoc($hasil)) {
@@ -88,19 +88,18 @@ $nomor = 1;
 foreach ($data_mutasi as $mutasi) {
     $pdf->cell(8, 7, $nomor++ . '.', 1, 0, 'C');
     $pdf->cell(23, 7, strtoupper($mutasi['id_pdd']), 1, 0, 'C');
-    $pdf->cell(40, 7, substr(strtoupper($mutasi['nama_warga']),0 , 17), 1, 0, 'L');
-    //$pdf->cell(35, 7, strtoupper($mutasi['tempat_lahir_warga']), 1, 0, 'L');
-    //$pdf->cell(20, 7, ($mutasi['tanggal_lahir_warga'] != '0000-00-00') ? date('d-m-Y', strtotime($mutasi['tanggal_lahir_warga'])) : '', 1, 0, 'C');
-    $pdf->cell(8, 7, substr(strtoupper($mutasi['jenis_kelamin_warga']), 0, 1), 1, 0, 'C');
+    $pdf->cell(40, 7, substr(strtoupper($mutasi['nama']),0 , 17), 1, 0, 'L');
+    //$pdf->cell(35, 7, strtoupper($mutasi['tempat_lahir']), 1, 0, 'L');
+    //$pdf->cell(20, 7, ($mutasi['tanggal_lahir'] != '0000-00-00') ? date('d-m-Y', strtotime($mutasi['tanggal_lahir'])) : '', 1, 0, 'C');
+    $pdf->cell(8, 7, substr(strtoupper($mutasi['jenis_kelamin']), 0, 1), 1, 0, 'C');
     //$pdf->cell(8, 7, strtoupper($mutasi['usia_mutasi']), 1, 0, 'C');
-    //$pdf->cell(50, 7, substr(strtoupper($mutasi['dusun_warga']), 0, 20), 1, 0, 'L');
-    //$pdf->cell(7, 7, strtoupper($mutasi['rt_warga']), 1, 0, 'C');
-    //$pdf->cell(7, 7, strtoupper($mutasi['rw_warga']), 1, 0, 'C');
-    //$pdf->cell(20, 7, strtoupper($mutasi['agama_warga']), 1, 0, 'C');
-    //$pdf->cell(26, 7, strtoupper($mutasi['status_perkawinan_warga']), 1, 0, 'C');
-    //$pdf->cell(16, 7, strtoupper($mutasi['pendidikan_terakhir_warga']), 1, 0, 'C');
-    //$pdf->cell(20, 7, strtoupper($mutasi['pekerjaan_warga']), 1, 0, 'C');
-    $pdf->cell(24, 7, strtoupper($mutasi['status_warga']), 1, 1, 'C');
+    //$pdf->cell(7, 7, strtoupper($mutasi['rt']), 1, 0, 'C');
+    //$pdf->cell(7, 7, strtoupper($mutasi['rw']), 1, 0, 'C');
+    //$pdf->cell(20, 7, strtoupper($mutasi['agama']), 1, 0, 'C');
+    //$pdf->cell(26, 7, strtoupper($mutasi['status_perkawinan']), 1, 0, 'C');
+    //$pdf->cell(16, 7, strtoupper($mutasi['pendidikan_terakhir']), 1, 0, 'C');
+    //$pdf->cell(20, 7, strtoupper($mutasi['pekerjaan']), 1, 0, 'C');
+    $pdf->cell(24, 7, strtoupper($mutasi['status']), 1, 1, 'C');
 }
 
 	$pdf->Ln(10);

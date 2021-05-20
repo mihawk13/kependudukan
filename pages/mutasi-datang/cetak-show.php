@@ -28,7 +28,7 @@ class PDF extends FPDF
 
         $this->Ln(1);
 
-        $this->Cell(200,8,'DATA WARGA MUTASI',0,1,'C');
+        $this->Cell(200,8,'DATA PENDUDUK MUTASI',0,1,'C');
         $this->Ln(2);
 
         $this->SetFont('Times','B',9.5);
@@ -47,9 +47,11 @@ class PDF extends FPDF
 }
 
 // ambil dari url
-$get_id_mutasi = $_GET['id_mutasi'];
+$get_id_mutasi = $_GET['id_mutasi_masuk'];
 // ambil dari database
-$query = "SELECT * FROM mutasi_masuk WHERE id_mutasi = $get_id_mutasi";
+$query = "SELECT * FROM mutasi_masuk AS mm
+INNER JOIN penduduk AS pdd ON mm.id_pdd = pdd.id_pdd
+WHERE mm.id_mutasi_masuk = $get_id_mutasi";
 $hasil = mysqli_query($db, $query);
 $data_mutasi = array();
 while ($row = mysqli_fetch_assoc($hasil)) {
@@ -68,80 +70,75 @@ $pdf->SetFont('Times','',12);
 $nomor = 1;
     $pdf->cell(45,7,'NIK',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, strtoupper($data_mutasi[0]['nik_mutasi']), 0, 1, 'L');
+    $pdf->cell(80, 7, strtoupper($data_mutasi[0]['nik']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Nama',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['nama_mutasi']),0 , 17), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['nama']),0 , 17), 0, 1, 'L');
 
     $pdf->cell(45,7,'Tempat Lahir',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, strtoupper($data_mutasi[0]['tempat_lahir_mutasi']), 0, 1, 'L');
+    $pdf->cell(80, 7, strtoupper($data_mutasi[0]['tempat_lahir']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Tanggal Lahir',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, ($data_mutasi[0]['tanggal_lahir_mutasi'] != '0000-00-00') ? date('d-m-Y', strtotime($data_mutasi[0]['tanggal_lahir_mutasi'])) : '', 0, 1, 'L');
+    $pdf->cell(80, 7, ($data_mutasi[0]['tanggal_lahir'] != '0000-00-00') ? date('d-m-Y', strtotime($data_mutasi[0]['tanggal_lahir'])) : '', 0, 1, 'L');
 
     $pdf->cell(45,7,'Jenis Kelamin',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['jenis_kelamin_mutasi']), 0, 1), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['jenis_kelamin']), 0, 1), 0, 1, 'L');
 
     $pdf->cell(45,7,'Alamat KTP',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['alamat_ktp_mutasi']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['alamat_ktp']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Alamat',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['alamat_mutasi']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['alamat']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Desa/Kelurahan',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['desa_kelurahan_mutasi']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['desa_kelurahan']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Kecamatan',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['kecamatan_mutasi']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['kecamatan']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Kabupaten/Kota',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['kabupaten_kota_mutasi']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['kabupaten_kota']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Provinsi',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['provinsi_mutasi']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['provinsi']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Negara',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['negara_mutasi']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data_mutasi[0]['negara']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'RT',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(7, 7, strtoupper($data_mutasi[0]['rt_mutasi']), 0, 1, 'L');
+    $pdf->cell(7, 7, strtoupper($data_mutasi[0]['rt']), 0, 1, 'L');
 
     $pdf->cell(45,7,'RW',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(7, 7, strtoupper($data_mutasi[0]['rw_mutasi']), 0, 1, 'L');
+    $pdf->cell(7, 7, strtoupper($data_mutasi[0]['rw']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Agama',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(20, 7, strtoupper($data_mutasi[0]['agama_mutasi']), 0, 1, 'L');
+    $pdf->cell(20, 7, strtoupper($data_mutasi[0]['agama']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Pendidikan',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(16, 7, strtoupper($data_mutasi[0]['pendidikan_terakhir_mutasi']), 0, 1, 'L');
+    $pdf->cell(16, 7, strtoupper($data_mutasi[0]['pendidikan_terakhir']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Pekerjaan',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(20, 7, strtoupper($data_mutasi[0]['pekerjaan_mutasi']), 0, 1, 'L');
+    $pdf->cell(20, 7, strtoupper($data_mutasi[0]['pekerjaan']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Kawin/Tidak Kawin',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(26, 7, strtoupper($data_mutasi[0]['status_perkawinan_mutasi']), 0, 1, 'L');
-
-    $pdf->cell(45,7,'Status Kependudukan',0,0,'L');
-    $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(24, 7, strtoupper($data_mutasi[0]['status_mutasi']), 0, 1, 'L');
-
+    $pdf->cell(26, 7, strtoupper($data_mutasi[0]['status']), 0, 1, 'L');
 	$pdf->Ln(10);
 
 $pdf->Output();

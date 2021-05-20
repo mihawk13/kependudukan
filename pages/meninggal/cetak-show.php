@@ -47,7 +47,6 @@ $id_kematian = $_GET['id_kematian'];
 // ambil dari database
 include "data-show.php";
 
-
 $nomor_surat = "01/SKet/I/" . date('Y');
 $provinsi = "Nusa Tenggara Timur";
 $kabupaten = "Manggarai";

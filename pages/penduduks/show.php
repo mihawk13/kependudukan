@@ -16,7 +16,7 @@ if($data_kk[]=!NULL){
   <tr>
     <th width="20%">No KK</th>
     <td width="1%">:</td>
-    <td><?php echo $data_kk[0]['nomor_keluarga'] ?></td>
+    <td><?php echo $data_kk[0]['nomor_kk'] ?></td>
   </tr>
   <tr>
     <th>Alamat</th>
@@ -139,25 +139,6 @@ if($data_kk[]=!NULL){
     <th>Status Tinggal</th>
     <td>:</td>
     <td><?php echo $data[0]['status'] ?></td>
-  </tr>
-</table>
-
-<h3>E. Data Aplikasi</h3>
-<table class="table table-striped">
-  <tr>
-    <th width="20%">Diinput oleh</th>
-    <td width="1%">:</td>
-    <td><?php echo $data[0]['id_user'] ?></td>
-  </tr>
-  <tr>
-    <th>Diinput</th>
-    <td>:</td>
-    <td><?php echo $data[0]['created_at'] ?></td>
-  </tr>
-  <tr>
-    <th>Diperbaharui</th>
-    <td>:</td>
-    <td><?php echo $data[0]['updated_at'] ?></td>
   </tr>
 </table>
 
