@@ -33,14 +33,14 @@
               <h3>Data Penduduk</h3><br>
             </div>
             <div>
-              <p align="right">Total ada <?php echo $jumlah_warga['total'] ?> data warga. <?php echo $jumlah_warga_l['total'] ?> di antaranya laki-laki, dan <?php echo $jumlah_warga_p['total'] ?> diantaranya perempuan. <br />Warga di atas 17 tahun berjumlah <?php echo $jumlah_warga_ld_17['total'] ?> orang, dan di bawah 17 tahun berjumlah <?php echo $jumlah_warga_kd_17['total'] ?> orang.
+              <p align="right">Total ada <?php echo $jumlah['total'] ?> data penduduk. <?php echo $jumlah_l['total'] ?> di antaranya laki-laki, dan <?php echo $jumlah_p['total'] ?> diantaranya perempuan. <br />Penduduk di atas 17 tahun berjumlah <?php echo $jumlah_ld_17['total'] ?> orang, dan di bawah 17 tahun berjumlah <?php echo $jumlah_kd_17['total'] ?> orang.
               </p>
 
             </div>
           </div>
         </div>
       </div>
-      <a href="../warga">
+      <a href="../penduduks">
         <div class="panel-footer">
           <span class="pull-left">View Details</span>
           <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

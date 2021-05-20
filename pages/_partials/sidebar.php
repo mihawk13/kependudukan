@@ -2,6 +2,7 @@
 function is_active($page)
 {
   $uri = "$_SERVER[REQUEST_URI]";
+  // echo $uri;
   if (strpos($uri, $page)) {
     echo 'active';
   }
@@ -13,8 +14,8 @@ function is_active($page)
     <li class="<?php is_active('dasbor'); ?>">
       <a href="../dasbor"><i class="fa fa-home"></i> Dashbord</a>
     </li>
-    <li class="<?php is_active('warga'); ?>">
-      <a href="../penduduk"><i class="fa fa-user"></i> Data Penduduk</a>
+    <li class="<?php is_active('penduduks'); ?>">
+      <a href="../penduduks"><i class="fa fa-user"></i> Data Penduduk</a>
     </li>
     <li class="<?php is_active('meninggal'); ?>">
       <a href="../meninggal"><i class="fa fa-ambulance"></i> Data Kematian</a>
