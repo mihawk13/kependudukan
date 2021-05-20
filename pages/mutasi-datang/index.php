@@ -20,36 +20,38 @@
   <tbody>
     <?php $nomor = 1; ?>
     <?php foreach ($data_mutasi as $mutasi) : ?>
-    <tr>
-      <td><?php echo $nomor++ ?>.</td>
-      <td><?php echo $mutasi['nik'] ?></td>
-      <td><?php echo $mutasi['nama'] ?></td>
-      <td><?php echo $mutasi['jenis_kelamin'] ?></td>
-      <!-- <td>
-        <?php echo ($mutasi['tanggal_lahir_mutasi'] != '0000-00-00') ? date('d-m-Y', strtotime($mutasi['tanggal_lahir_mutasi'])) : ''?>
+      <tr>
+        <td><?php echo $nomor++ ?>.</td>
+        <td><?php echo $mutasi['nik'] ?></td>
+        <td><?php echo $mutasi['nama'] ?></td>
+        <td><?php echo $mutasi['jenis_kelamin'] ?></td>
+        <!-- <td>
+        <?php echo ($mutasi['tanggal_lahir_mutasi'] != '0000-00-00') ? date('d-m-Y', strtotime($mutasi['tanggal_lahir_mutasi'])) : '' ?>
       </td> -->
-      <td><?php echo $mutasi['status'] ?></td>
-      <td>
-        <!-- Single button -->
-        <div class="btn-group pull-right">
-          <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-          <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu pull-right" role="menu">
-           
-            <li>
-              <a href="cetak-show.php?id_mutasi_masuk=<?php echo $mutasi['id_mutasi_masuk'] ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Cetak</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="delete.php?id_mutasi_masuk=<?php echo $mutasi['id_mutasi_masuk'] ?>" onclick="return confirm('Yakin hapus data ini?')">
-                <i class="glyphicon glyphicon-trash"></i> Hapus
-              </a>
-            </li>
-          </ul>
-        </div>
-      </td>
-    </tr>
+        <td><?php echo $mutasi['status'] ?></td>
+        <td>
+          <!-- Single button -->
+          <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+            <div class="btn-group pull-right">
+              <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right" role="menu">
+
+                <li>
+                  <a href="cetak-show.php?id_mutasi_masuk=<?php echo $mutasi['id_mutasi_masuk'] ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Cetak</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="delete.php?id_mutasi_masuk=<?php echo $mutasi['id_mutasi_masuk'] ?>" onclick="return confirm('Yakin hapus data ini?')">
+                    <i class="glyphicon glyphicon-trash"></i> Hapus
+                  </a>
+                </li>
+              </ul>
+            </div>
+          <?php endif; ?>
+        </td>
+      </tr>
     <?php endforeach ?>
   </tbody>
 </table>

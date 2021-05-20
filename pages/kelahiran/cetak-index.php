@@ -28,19 +28,18 @@ class PDF extends FPDF
 
         $this->Ln(1);
 
-        $this->Cell(308, 8, 'LAPORAN DATA PENDUDUK KELUAR', 0, 1, 'C');
+        $this->Cell(308, 8, 'LAPORAN DATA KELAHIRAN', 0, 1, 'C');
         $this->Ln(2);
 
         $this->SetFont('Times', 'B', 9.5);
 
+        $this->Cell(40);
         // header tabel
-        $this->Cell(60);
         $this->cell(8, 7, 'NO', 1, 0, 'C');
-        $this->cell(25, 7, 'NIK', 1, 0, 'C');
-        $this->cell(50, 7, 'NAMA', 1, 0, 'C');
-        $this->cell(35, 7, 'TANGGAL PINDAH', 1, 0, 'C');
-        $this->cell(8, 7, 'JK', 1, 0, 'C');
-        $this->cell(50, 7, 'ALAMAT ASAL', 1, 1, 'C');
+        $this->cell(70, 7, 'NAMA', 1, 0, 'C');
+        $this->cell(35, 7, 'JENIS KELAMIN', 1, 0, 'C');
+        $this->cell(40, 7, 'TANGGAL LAHIR', 1, 0, 'C');
+        $this->cell(50, 7, 'TEMPAT LAHIR', 1, 1, 'C');
     }
 
     // Page footer
@@ -68,14 +67,13 @@ $pdf->SetFont('Times', '', 9);
 // set penomoran
 $nomor = 1;
 
-foreach ($data_mutasi as $mutasi) {
-    $pdf->Cell(60);
-    $pdf->cell(8, 7, $nomor++ . '.', 1, 0, 'C');
-    $pdf->cell(25, 7, strtoupper($mutasi['nik']), 1, 0, 'C');
-    $pdf->cell(50, 7, strtoupper($mutasi['nama']), 1, 0, 'C');
-    $pdf->cell(35, 7, strtoupper($mutasi['tanggal_pindah']), 1, 0, 'C');
-    $pdf->cell(8, 7, strtoupper($mutasi['jenis_kelamin']), 1, 0, 'C');
-    $pdf->cell(50, 7, strtoupper($mutasi['alamat_mutasi']), 1, 1, 'C');
+foreach ($data_lahir as $dtlahir) {
+    $pdf->Cell(40);
+    $pdf->cell(8, 7, $nomor++, 1, 0, 'C');
+    $pdf->cell(70, 7, strtoupper($dtlahir['nama_bayi']), 1, 0, 'C');
+    $pdf->cell(35, 7, strtoupper($dtlahir['jk']), 1, 0, 'C');
+    $pdf->cell(40, 7, $dtlahir['tgl_kelahiran'], 1, 0, 'C');
+    $pdf->cell(50, 7, strtoupper($dtlahir['tempat_lahir']), 1, 1, 'C');
 }
 
 $pdf->Ln(10);

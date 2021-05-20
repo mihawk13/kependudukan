@@ -4,7 +4,7 @@ include('../../config/koneksi.php');
 // ambil dari url
 
 //ambil data kk
-$query_keluarga = "SELECT warga.nama_warga, kartu_keluarga.nomor_keluarga FROM warga JOIN kartu_keluarga ON warga.id_pdd=kartu_keluarga.id_kepala_keluarga ";
+$query_keluarga = "SELECT penduduk.nama, kartu_keluarga.nomor_kk FROM penduduk JOIN kartu_keluarga ON penduduk.id_pdd=kartu_keluarga.id_kepala_keluarga ";
 
 $hasil_keluarga = mysqli_query($db, $query_keluarga);
 
@@ -14,19 +14,19 @@ while ($row_keluarga = mysqli_fetch_assoc($hasil_keluarga)){
 	$data_keluarga[] = $row_keluarga;
 }
 
-//ambil warga
-$query_warga = "SELECT nama_warga,nik_warga,id_pdd FROM warga WHERE status_warga<> 'Pindah Keluar'";
+//ambil penduduk
+$query = "SELECT nama,nik,id_pdd FROM penduduk WHERE status<> 'Pindah Keluar'";
 
-$hasil_warga = mysqli_query($db, $query_warga);
+$hasil = mysqli_query($db, $query);
 
-$data_warga = array();
+$data = array();
 
-while ($row_warga = mysqli_fetch_assoc($hasil_warga)){
-	$data_warga[] = $row_warga;
+while ($row = mysqli_fetch_assoc($hasil)){
+	$data[] = $row;
 }
 
 //ambil ibu
-$query_ibu = "SELECT nama_warga,nik_warga,id_pdd FROM `warga`WHERE jenis_kelamin_warga = 'p'";
+$query_ibu = "SELECT nama,nik,id_pdd FROM `penduduk`WHERE jenis_kelamin = 'p'";
 
 $hasil_ibu = mysqli_query($db, $query_ibu);
 
@@ -37,7 +37,7 @@ while ($row_ibu = mysqli_fetch_assoc($hasil_ibu)){
 }
 
 //ambil ayah
-$query_ayah = "SELECT nama_warga,nik_warga,id_pdd FROM `warga`WHERE jenis_kelamin_warga = 'l'";
+$query_ayah = "SELECT nama,nik,id_pdd FROM `penduduk`WHERE jenis_kelamin = 'l'";
 
 $hasil_ayah = mysqli_query($db, $query_ayah);
 

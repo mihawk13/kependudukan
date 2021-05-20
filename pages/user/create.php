@@ -33,8 +33,7 @@
       <select class="form-control selectpicker" name="status_user" required>
         <option value="" selected disabled>- pilih -</option>
         <option value="Admin">Admin</option>
-        <option value="RT">RT</option>
-        <option value="RW">RW</option>
+        <option value="Lurah">Lurah</option>
       </select>
     </td>
   </tr>

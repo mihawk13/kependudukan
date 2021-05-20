@@ -23,38 +23,36 @@
   <tbody>
     <?php $nomor = 1; ?>
     <?php foreach ($data_kematian as $kematian) : ?>
-    <tr>
-      <td><?php echo $nomor++ ?>.</td>
-      <td><?php echo ($kematian['tgl_meninggal'] != '0000-00-00') ? date('d-m-Y', strtotime($kematian['tgl_meninggal'])) : ''?></td>
-      <td><?php echo $kematian['nama'] ?></td>
-      <td><?php echo $kematian['jenis_kelamin'] ?></td>
-      <td><?php echo $kematian['sebab'] ?></td>
-      <td><?php echo $kematian['tempat_kematian'] ?></td>
-      <td><?php echo $kematian['nama_pelapor'] ?></td>
-      <td><?php echo $kematian['hubungan_pelapor'] ?></td>
-      <td>
-        <!-- Single button -->
-        <div class="btn-group pull-right">
-          <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-          <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu pull-right" role="menu">
-            
-            <li class="divider"></li>
-            <li>
-              <a href="cetak-show.php?id_kematian=<?php echo $kematian['id_meninggal'] ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Cetak</a>
-            </li>
-            <?php if ($_SESSION['user']['status_user'] != 'RW'): ?>
-            <li class="divider"></li>
-            <li>
-              <a href="edit.php?id_kematian=<?php echo $kematian['id_meninggal'] ?>"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
-            </li>
-            <li class="divider"></li>
-            <?php endif; ?>
-          </ul>
-        </div>
-      </td>
-    </tr>
+      <tr>
+        <td><?php echo $nomor++ ?>.</td>
+        <td><?php echo ($kematian['tgl_meninggal'] != '0000-00-00') ? date('d-m-Y', strtotime($kematian['tgl_meninggal'])) : '' ?></td>
+        <td><?php echo $kematian['nama'] ?></td>
+        <td><?php echo $kematian['jenis_kelamin'] ?></td>
+        <td><?php echo $kematian['sebab'] ?></td>
+        <td><?php echo $kematian['tempat_kematian'] ?></td>
+        <td><?php echo $kematian['nama_pelapor'] ?></td>
+        <td><?php echo $kematian['hubungan_pelapor'] ?></td>
+        <td>
+          <!-- Single button -->
+          <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+            <div class="btn-group pull-right">
+              <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right" role="menu">
+
+                <li>
+                  <a href="cetak-show.php?id_kematian=<?php echo $kematian['id_meninggal'] ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Cetak</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                  <a href="edit.php?id_kematian=<?php echo $kematian['id_meninggal'] ?>"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
+                </li>
+              </ul>
+            </div>
+          <?php endif; ?>
+        </td>
+      </tr>
     <?php endforeach ?>
   </tbody>
 </table>

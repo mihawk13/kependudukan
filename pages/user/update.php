@@ -28,11 +28,11 @@ $id_user = htmlspecialchars($_POST['id_user']);
 if ($_POST['password_user'] == '') {
   // jika tidak ubah password
 
-  $query = "UPDATE user SET nama_user = '$nama_user', username_user = '$username_user', keterangan_user = '$keterangan_user', status_user = '$status_user', desa_kelurahan_user = '$desa_kelurahan_user', kecamatan_user = '$kecamatan_user', kabupaten_kota_user = '$kabupaten_kota_user', provinsi_user = '$provinsi_user', negara_user = '$negara_user', rt_user = '$rt_user', rw_user = '$rw_user', 	updated_at = CURRENT_TIMESTAMP WHERE user.id_user = $id_user;";
+  $query = "UPDATE user SET nama_user = '$nama_user', username_user = '$username_user', keterangan_user = '$keterangan_user', status_user = '$status_user', desa_kelurahan_user = '$desa_kelurahan_user', kecamatan_user = '$kecamatan_user', kabupaten_kota_user = '$kabupaten_kota_user', provinsi_user = '$provinsi_user', negara_user = '$negara_user', rt_user = '$rt_user', rw_user = '$rw_user' WHERE user.id_user = $id_user;";
 } else {
   // jika ubah password
 
-  $query = "UPDATE user SET nama_user = '$nama_user', username_user = '$username_user', password_user = '$password_user', keterangan_user = '$keterangan_user', status_user = '$status_user', desa_kelurahan_user = '$desa_kelurahan_user', kecamatan_user = '$kecamatan_user', kabupaten_kota_user = '$kabupaten_kota_user', provinsi_user = '$provinsi_user', negara_user = '$negara_user', rt_user = '$rt_user', rw_user = '$rw_user', 	updated_at = CURRENT_TIMESTAMP WHERE user.id_user = $id_user;";
+  $query = "UPDATE user SET nama_user = '$nama_user', username_user = '$username_user', password_user = '$password_user', keterangan_user = '$keterangan_user', status_user = '$status_user', desa_kelurahan_user = '$desa_kelurahan_user', kecamatan_user = '$kecamatan_user', kabupaten_kota_user = '$kabupaten_kota_user', provinsi_user = '$provinsi_user', negara_user = '$negara_user', rt_user = '$rt_user', rw_user = '$rw_user' WHERE user.id_user = $id_user;";
 }
 
 $hasil = mysqli_query($db, $query);

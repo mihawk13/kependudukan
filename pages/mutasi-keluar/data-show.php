@@ -5,7 +5,7 @@ include('../../config/koneksi.php');
 $get_id_mutasi = $_GET['id_mutasi'];
 
 // ambil dari database
-$query = "SELECT * FROM mutasi_keluar JOIN warga ON mutasi_keluar.id_pdd = warga.id_pdd WHERE id_mutasi = $get_id_mutasi";
+$query = "SELECT * FROM mutasi_keluar JOIN penduduk ON mutasi_keluar.id_pdd = penduduk.id_pdd WHERE id_mutasi = $get_id_mutasi";
 
 
 $hasil = mysqli_query($db, $query);
@@ -16,13 +16,13 @@ while ($row = mysqli_fetch_assoc($hasil)) {
  $data_mutasi[] = $row;
 }
 
-//ambil dari warga
-$query_warga = "SELECT * FROM warga JOIN mutasi_keluar ON warga.id_pdd = mutasi_keluar.id_pdd WHERE mutasi_keluar.id_mutasi = $get_id_mutasi";
+//ambil dari penduduk
+$query = "SELECT * FROM penduduk JOIN mutasi_keluar ON penduduk.id_pdd = mutasi_keluar.id_pdd WHERE mutasi_keluar.id_mutasi = $get_id_mutasi";
 
-$hasil_warga = mysqli_query($db, $query_warga);
+$hasil = mysqli_query($db, $query);
 
-$data_warga = array();
+$data = array();
 
-while ($row_warga = mysqli_fetch_assoc($hasil_warga)) {
-  $data_warga[] = $row_warga;
+while ($row = mysqli_fetch_assoc($hasil)) {
+  $data[] = $row;
 }

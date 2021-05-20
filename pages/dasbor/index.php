@@ -10,12 +10,14 @@
       <div class="col-md-12">
         <h2>
           <center><strong>
-              <font color="blue">Hai <?php echo $_SESSION['user']['nama_user']; ?><i class="fa fa-user"></i></font>
+              <font color="blue">Hai <?php echo $_SESSION['user']['nama_user']; ?></font>
             </strong></center>
         </h2><span></span>
         <div class="col-xs-12">
           <font color="grey">
-            <h4>Selamat datang di Aplikasi Kependudukan Kelurahan Wae Belang</h4>
+            <h4>
+              <center>Selamat datang di Aplikasi Kependudukan Kelurahan Wae Belang</center>
+            </h4>
           </font>
         </div>
       </div>
@@ -35,18 +37,19 @@
             <div>
               <p align="right">Total ada <?php echo $jumlah['total'] ?> data penduduk. <?php echo $jumlah_l['total'] ?> di antaranya laki-laki, dan <?php echo $jumlah_p['total'] ?> diantaranya perempuan. <br />Penduduk di atas 17 tahun berjumlah <?php echo $jumlah_ld_17['total'] ?> orang, dan di bawah 17 tahun berjumlah <?php echo $jumlah_kd_17['total'] ?> orang.
               </p>
-
             </div>
           </div>
         </div>
       </div>
-      <a href="../penduduks">
-        <div class="panel-footer">
-          <span class="pull-left">View Details</span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      </a>
+      <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+        <a href="../penduduks">
+          <div class="panel-footer">
+            <span class="pull-left">View Details</span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        </a>
+      <?php endif; ?>
     </div>
   </div>
   <div class="col-lg-4 col-md-6">
@@ -66,13 +69,15 @@
           </div>
         </div>
       </div>
-      <a href="../kartu-keluarga">
-        <div class="panel-footer">
-          <span class="pull-left">View Details</span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      </a>
+      <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+        <a href="../kartu-keluarga">
+          <div class="panel-footer">
+            <span class="pull-left">View Details</span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        </a>
+      <?php endif; ?>
     </div>
   </div>
   <div class="col-lg-4 col-md-6">
@@ -94,13 +99,15 @@
           </div>
         </div>
       </div>
-      <a href="../mutasi-datang">
-        <div class="panel-footer">
-          <span class="pull-left">View Details</span>
-          <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-          <div class="clearfix"></div>
-        </div>
-      </a>
+      <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+        <a href="../mutasi-datang">
+          <div class="panel-footer">
+            <span class="pull-left">View Details</span>
+            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+            <div class="clearfix"></div>
+          </div>
+        </a>
+      <?php endif; ?>
     </div>
   </div>
 </div>

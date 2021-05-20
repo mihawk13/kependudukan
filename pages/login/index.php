@@ -11,46 +11,43 @@ if (isset($_SESSION['user'])) {
 <?php include('../_partials/top-login.php') ?>
 
 <body style="background-image:url(../../assets/img/blue.jpg);background-size:cover;">
-        <div class="row">
-            <div class="col-md-4 col-md-offset-4">
-                <div class="login-panel panel panel-default">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                            <h3 class="panel-heading"><center>Aplikasi Kependudukan</center></h3>
-                        </div>
-                    </div>
-                
 
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Silahkan login terlebih dahulu !</h3>
-                    </div>
-                    <div class="panel-body">
-                        <form role="form" method="post" action="../login/proses-login.php">
-                            <fieldset>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Nama Pengguna" name="username_user" type="username" required="" autofocus>
-                                </div>
-                                <div class="form-group">
-                                    <input class="form-control" placeholder="Kata Sandi" name="password_user" type="password" value="" required="">
-                                </div>
-                                <!--
-                                <div class="checkbox">
-                                    <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                    </label>
-                                </div>
-                                <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" class="btn btn-lg btn-primary btn-block">Masuk </button>
-                                <hr><center>
-                                Distributed by <a href="/" target="_blank" rel="noopener noreferrer">Meisyntia Angelina</a>
-                                </center></fieldset>
-                        </form>
-                    </div>
-                </div>
-            </div>
+  <div class="row" style="margin-top: 100px;">
+    <div class="col-md-4 col-md-offset-4">
+      <div class="login-panel panel panel-default">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-heading">
+              <center>Aplikasi Kependudukan</center>
+            </h3>
+          </div>
         </div>
+
+
+        <div class="panel-heading">
+          <h3 class="panel-title">Silahkan login terlebih dahulu !</h3>
+        </div>
+        <div class="panel-body">
+          <form role="form" method="post" action="../login/proses-login.php">
+            <fieldset>
+              <div class="form-group">
+                <input class="form-control" placeholder="Nama Pengguna" name="username_user" type="username" required="" autofocus>
+              </div>
+              <div class="form-group">
+                <input class="form-control" placeholder="Kata Sandi" name="password_user" type="password" value="" required="">
+              </div>
+              <button type="submit" class="btn btn-lg btn-primary btn-block">Masuk </button>
+              <hr>
+              <center>
+                Distributed by <a href="/" target="_blank" rel="noopener noreferrer">Meisyntia Angelina</a>
+              </center>
+            </fieldset>
+          </form>
+        </div>
+      </div>
     </div>
- 
+  </div>
+
 </body>
 
 

@@ -96,27 +96,27 @@ $pdf->MultiCell(0, 5, $jenis, '', "L");
 $pdf->Ln(6);
 $pdf->Cell(0, 5, 'Nama', 0, 0, 'L');
 $pdf->Cell(-155);
-$pdf->Cell(0, 5, ':  ' . strtoupper($data_kematian[0]['nama']), 0, 1, 'L');
+$pdf->Cell(0, 5, ':  ' . strtoupper($datakmt[0]['nama']), 0, 1, 'L');
 
 $pdf->Cell(0, 5, 'Jenis Kelamin', 0, 0, 'L');
 $pdf->Cell(-155);
-$pdf->Cell(0, 5, ':  ' . strtoupper($data_kematian[0]['jenis_kelamin']), 0, 1, 'L');
+$pdf->Cell(0, 5, ':  ' . strtoupper($datakmt[0]['jenis_kelamin']), 0, 1, 'L');
 
 $pdf->Cell(0, 5, 'Sebab Kematian', 0, 0, 'L');
 $pdf->Cell(-155);
-$pdf->Cell(0, 5, ':  ' . strtoupper($data_kematian[0]['sebab']), 0, 1, 'L');
+$pdf->Cell(0, 5, ':  ' . strtoupper($datakmt[0]['sebab']), 0, 1, 'L');
 
 $pdf->Cell(0, 5, 'Tempat Kematian', 0, 0, 'L');
 $pdf->Cell(-155);
-$pdf->Cell(0, 5, ':  ' . strtoupper($data_kematian[0]['tempat_kematian']), 0, 1, 'L');
+$pdf->Cell(0, 5, ':  ' . strtoupper($datakmt[0]['tempat_kematian']), 0, 1, 'L');
 
 $pdf->Cell(0, 5, 'Nama Pelapor', 0, 0, 'L');
 $pdf->Cell(-155);
-$pdf->Cell(0, 5, ':  ' . strtoupper($data_kematian[0]['nama_pelapor']), 0, 1, 'L');
+$pdf->Cell(0, 5, ':  ' . strtoupper($datakmt[0]['nama_pelapor']), 0, 1, 'L');
 
 $pdf->Cell(0, 5, 'Hubungan Pelapor ', 0, 0, 'L');
 $pdf->Cell(-155);
-$pdf->Cell(0, 5, ':  ' . strtoupper($data_kematian[0]['hubungan_pelapor']), 0, 1, 'L');
+$pdf->Cell(0, 5, ':  ' . strtoupper($datakmt[0]['hubungan_pelapor']), 0, 1, 'L');
 
 //Akhir Surat
 $jenis = '         Demikian surat ini dibuat agar dapat digunakan sebagaimana mestinya. Atas perhatiannya kami ucapkan terima kasih.';
@@ -126,7 +126,7 @@ $pdf->MultiCell(0, 5, $jenis, '', "L");
 
 $pdf->Ln(30);
 $pdf->Cell(134);
-$pdf->Cell(0, 5, $kabupaten . ', ' . TanggalIndo($data_kematian[0]['tgl_meninggal']), 0, 0, 'C');
+$pdf->Cell(0, 5, $kabupaten . ', ' . TanggalIndo($datakmt[0]['tgl_meninggal']), 0, 0, 'C');
 
 $pdf->Ln(8);
 $pdf->Cell(134);

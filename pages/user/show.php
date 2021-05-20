@@ -68,18 +68,4 @@
   </tr>
 </table>
 
-<h3>C. Data Aplikasi</h3>
-<table class="table table-striped">
-  <tr>
-    <th width="20%">Diinput</th>
-    <td width="1%">:</td>
-    <td><?php echo $data_user[0]['created_at'] ?></td>
-  </tr>
-  <tr>
-    <th>Diperbaharui</th>
-    <td>:</td>
-    <td><?php echo $data_user[0]['updated_at'] ?></td>
-  </tr>
-</table>
-
 <?php include('../_partials/bottom.php') ?>

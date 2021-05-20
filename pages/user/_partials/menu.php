@@ -6,7 +6,7 @@
           <i class="glyphicon glyphicon-file"></i> Tambah
         </a>
       </div>
-      <div class="col-md-2">
+      <!-- <div class="col-md-2">
         <a href="index.php" class="btn btn-primary">
           <i class="glyphicon glyphicon-eye-open"></i> Lihat Data
         </a>
@@ -15,7 +15,7 @@
         <a href="#" class="btn btn-primary">
           <i class="glyphicon glyphicon-refresh"></i> Refresh
         </a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

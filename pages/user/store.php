@@ -26,7 +26,7 @@ $rw_user = htmlspecialchars($_POST['rw_user']);
 
 // masukkan ke database
 
-$query = "INSERT INTO user (id_user, nama_user, username_user, password_user, keterangan_user, status_user, desa_kelurahan_user, kecamatan_user, kabupaten_kota_user, provinsi_user, negara_user, rt_user, rw_user, created_at, updated_at) VALUES (NULL, '$nama_user', '$username_user', '$password_user', '$keterangan_user', '$status_user', '$desa_kelurahan_user', '$kecamatan_user', '$kabupaten_kota_user', '$provinsi_user', '$negara_user', '$rt_user', '$rw_user', CURRENT_TIMESTAMP, '0000-00-00 00:00:00.000000');";
+$query = "INSERT INTO user (nama_user, username_user, password_user, keterangan_user, status_user, desa_kelurahan_user, kecamatan_user, kabupaten_kota_user, provinsi_user, negara_user, rt_user, rw_user) VALUES ('$nama_user', '$username_user', '$password_user', '$keterangan_user', '$status_user', '$desa_kelurahan_user', '$kecamatan_user', '$kabupaten_kota_user', '$provinsi_user', '$negara_user', '$rt_user', '$rw_user');";
 
 $hasil = mysqli_query($db, $query);
 
