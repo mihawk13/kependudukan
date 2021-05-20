@@ -8,7 +8,7 @@
         </a>
       </div>
       <?php endif; ?>
-      <div class="col-md-2">
+      <!-- <div class="col-md-2">
         <a href="index.php" class="btn btn-info">
           <i class="fa fa-eye"></i> Lihat Data
         </a>
@@ -17,12 +17,12 @@
         <button type="button" href="" class="btn btn-primary">
           <i class="fa fa-refresh"></i> Refresh
         </button>
-      </div>
-      <div class="col-md-2">
+      </div> -->
+      <!-- <div class="col-md-2">
         <a href="cetak-index.php" target="_blank" class="btn btn-outline btn-primary">
           <i class="glyphicon glyphicon-print"></i> Cetak
         </a>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

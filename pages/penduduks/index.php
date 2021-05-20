@@ -11,7 +11,7 @@
     <tr>
       <th>#</th>
       <th>NIK</th>
-      <th>Nama Warga</th>
+      <th>Nama Penduduk</th>
       <th>L/P</th>
       <!-- <th>Lahir</th> -->
       <th>Usia</th>
@@ -23,19 +23,19 @@
   </thead>
   <tbody>
     <?php $nomor = 1; ?>
-    <?php foreach ($data_warga as $warga) : ?>
+    <?php foreach ($data as $pdd) : ?>
     <tr>
       <td><?php echo $nomor++ ?>.</td>
-      <td><?php echo $warga['nik_warga'] ?></td>
-      <td><?php echo $warga['nama_warga'] ?></td>
-      <td><?php echo $warga['jenis_kelamin_warga'] ?></td>
+      <td><?php echo $pdd['nik'] ?></td>
+      <td><?php echo $pdd['nama'] ?></td>
+      <td><?php echo $pdd['jenis_kelamin'] ?></td>
       <!-- <td>
-        <?php echo ($warga['tanggal_lahir_warga'] != '0000-00-00') ? date('d-m-Y', strtotime($warga['tanggal_lahir_warga'])) : ''?>
+        <?php echo ($pdd['tanggal_lahir'] != '0000-00-00') ? date('d-m-Y', strtotime($pdd['tanggal_lahir'])) : ''?>
       </td> -->
-      <td><?php echo $warga['usia_warga'] ?></td>
-      <td><?php echo $warga['pendidikan_terakhir_warga'] ?></td>
-      <td><?php echo $warga['pekerjaan_warga'] ?></td>
-      <td><?php echo $warga['status_warga'] ?></td>
+      <td><?php echo $pdd['usia'] ?></td>
+      <td><?php echo $pdd['pendidikan_terakhir'] ?></td>
+      <td><?php echo $pdd['pekerjaan'] ?></td>
+      <td><?php echo $pdd['status'] ?></td>
       <td>
         <!-- Single button -->
         <div class="btn-group pull-right">
@@ -46,23 +46,23 @@
             
             <li class="divider"></li>
             <li>
-              <a href="show.php?id_pdd=<?php echo $warga['id_pdd'] ?>"><i class="glyphicon glyphicon-sunglasses"></i> Detail</a>
+              <a href="show.php?id_pdd=<?php echo $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-sunglasses"></i> Detail</a>
             </li>
             <li>
-              <a href="cetak-show.php?id_pdd=<?php echo $warga['id_pdd'] ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Cetak</a>
+              <a href="cetak-show.php?id_pdd=<?php echo $pdd['id_pdd'] ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Cetak</a>
             </li>
             <?php if ($_SESSION['user']['status_user'] != 'RW'): ?>
             <li class="divider"></li>
             <li>
-              <a href="edit.php?id_pdd=<?php echo $warga['id_pdd'] ?>"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
+              <a href="edit.php?id_pdd=<?php echo $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
             </li>
-            <li>
-              <a href="../mutasi/create.php?id_pdd=<?php echo $warga['id_pdd'] ?>"><i class="glyphicon glyphicon-export"></i> Mutasi</a>
+            <!-- <li>
+              <a href="../mutasi/create.php?id_pdd=<?php echo $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-export"></i> Mutasi</a>
             </li>
-            <li class="divider"></li>
+            <li class="divider"></li> -->
             
             <li>
-              <a href="delete.php?id_pdd=<?php echo $warga['id_pdd'] ?>" onclick="return confirm('Yakin hapus data ini?')">
+              <a href="delete.php?id_pdd=<?php echo $pdd['id_pdd'] ?>" onclick="return confirm('Yakin hapus data ini?')">
                 <i class="glyphicon glyphicon-trash"></i> Hapus
               </a>
             </li>
@@ -80,20 +80,20 @@
 
 <div class="well">
   <dl class="dl-horizontal">
-    <dt>Total Warga</dt>
-    <dd><?php echo $jumlah_warga['total'] ?> orang</dd>
+    <dt>Total Penduduk</dt>
+    <dd><?php echo $jumlah['total'] ?> orang</dd>
 
     <dt>Jumlah Laki-laki</dt>
-    <dd><?php echo $jumlah_warga_l['total'] ?> orang</dd>
+    <dd><?php echo $jumlah_l['total'] ?> orang</dd>
 
     <dt>Jumlah Perempuan</dt>
-    <dd><?php echo $jumlah_warga_p['total'] ?> orang</dd>
+    <dd><?php echo $jumlah_p['total'] ?> orang</dd>
 
-    <dt>Warga < 17 tahun</dt>
-    <dd><?php echo $jumlah_warga_kd_17['total'] ?> orang</dd>
+    <dt>Penduduk < 17 tahun</dt>
+    <dd><?php echo $jumlah_kd_17['total'] ?> orang</dd>
 
-    <dt>Warga >= 17 tahun</dt>
-    <dd><?php echo $jumlah_warga_ld_17['total'] ?> orang</dd>
+    <dt>Penduduk >= 17 tahun</dt>
+    <dd><?php echo $jumlah_ld_17['total'] ?> orang</dd>
   </dl>
 </div>
 

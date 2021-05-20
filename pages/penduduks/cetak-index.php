@@ -28,7 +28,7 @@ class PDF extends FPDF
 
         $this->Ln(1);
 
-        $this->Cell(308,8,'LAPORAN DATA WARGA',0,1,'C');
+        $this->Cell(308,8,'LAPORAN DATA PENDUDUK',0,1,'C');
         $this->Ln(2);
 
         $this->SetFont('Times','B',9.5);
@@ -65,11 +65,11 @@ class PDF extends FPDF
 }
 
 // ambil dari database
-$query = "SELECT *, TIMESTAMPDIFF(YEAR, `tanggal_lahir_warga`, CURDATE()) AS usia_warga FROM warga";
+$query = "SELECT *, TIMESTAMPDIFF(YEAR, `tanggal_lahir`, CURDATE()) AS usia FROM penduduk";
 $hasil = mysqli_query($db, $query);
-$data_warga = array();
+$data = array();
 while ($row = mysqli_fetch_assoc($hasil)) {
-  $data_warga[] = $row;
+  $data[] = $row;
 }
 
 
@@ -83,22 +83,22 @@ $pdf->SetFont('Times','',9);
 // set penomoran
 $nomor = 1;
 
-foreach ($data_warga as $warga) {
+foreach ($data as $pdd) {
     $pdf->cell(8, 7, $nomor++ . '.', 1, 0, 'C');
-    $pdf->cell(23, 7, strtoupper($warga['nik_warga']), 1, 0, 'C');
-    $pdf->cell(40, 7, substr(strtoupper($warga['nama_warga']),0 , 17), 1, 0, 'L');
-    $pdf->cell(35, 7, strtoupper($warga['tempat_lahir_warga']), 1, 0, 'L');
-    $pdf->cell(20, 7, ($warga['tanggal_lahir_warga'] != '0000-00-00') ? date('d-m-Y', strtotime($warga['tanggal_lahir_warga'])) : '', 1, 0, 'C');
-    $pdf->cell(8, 7, substr(strtoupper($warga['jenis_kelamin_warga']), 0, 1), 1, 0, 'C');
-    $pdf->cell(8, 7, strtoupper($warga['usia_warga']), 1, 0, 'C');
-    $pdf->cell(50, 7, substr(strtoupper($warga['alamat_warga']), 0, 20), 1, 0, 'L');
-    $pdf->cell(7, 7, strtoupper($warga['rt_warga']), 1, 0, 'C');
-    $pdf->cell(7, 7, strtoupper($warga['rw_warga']), 1, 0, 'C');
-    $pdf->cell(20, 7, strtoupper($warga['agama_warga']), 1, 0, 'C');
-    $pdf->cell(26, 7, strtoupper($warga['status_perkawinan_warga']), 1, 0, 'C');
-    $pdf->cell(16, 7, strtoupper($warga['pendidikan_terakhir_warga']), 1, 0, 'C');
-    $pdf->cell(20, 7, strtoupper($warga['pekerjaan_warga']), 1, 0, 'C');
-    $pdf->cell(24, 7, strtoupper($warga['status_warga']), 1, 1, 'C');
+    $pdf->cell(23, 7, strtoupper($pdd['nik']), 1, 0, 'C');
+    $pdf->cell(40, 7, substr(strtoupper($pdd['nama']),0 , 17), 1, 0, 'L');
+    $pdf->cell(35, 7, strtoupper($pdd['tempat_lahir']), 1, 0, 'L');
+    $pdf->cell(20, 7, ($pdd['tanggal_lahir'] != '0000-00-00') ? date('d-m-Y', strtotime($pdd['tanggal_lahir'])) : '', 1, 0, 'C');
+    $pdf->cell(8, 7, substr(strtoupper($pdd['jenis_kelamin']), 0, 1), 1, 0, 'C');
+    $pdf->cell(8, 7, strtoupper($pdd['usia']), 1, 0, 'C');
+    $pdf->cell(50, 7, substr(strtoupper($pdd['alamat']), 0, 20), 1, 0, 'L');
+    $pdf->cell(7, 7, strtoupper($pdd['rt']), 1, 0, 'C');
+    $pdf->cell(7, 7, strtoupper($pdd['rw']), 1, 0, 'C');
+    $pdf->cell(20, 7, strtoupper($pdd['agama']), 1, 0, 'C');
+    $pdf->cell(26, 7, strtoupper($pdd['status_perkawinan']), 1, 0, 'C');
+    $pdf->cell(16, 7, strtoupper($pdd['pendidikan_terakhir']), 1, 0, 'C');
+    $pdf->cell(20, 7, strtoupper($pdd['pekerjaan']), 1, 0, 'C');
+    $pdf->cell(24, 7, strtoupper($pdd['status']), 1, 1, 'C');
 }
 
 	$pdf->Ln(10);

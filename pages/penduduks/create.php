@@ -1,6 +1,6 @@
 <?php include('../_partials/top.php') ?>
 
-<h1 class="page-header">Data Warga</h1>
+<h1 class="page-header">Data Penduduk</h1>
 <?php include('_partials/menu.php') ?>
 <button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back()">
   <i class="fa fa-arrow-circle-left"></i> Kembali
@@ -11,17 +11,17 @@
   <tr>
     <th width="20%">NIK</th>
     <td width="1%">:</td>
-    <td><input type="text" class="form-control" name="nik_warga" required></td>
+    <td><input type="text" class="form-control" name="nik" required></td>
   </tr>
   <tr>
-    <th>Nama Warga</th>
+    <th>Nama Penduduk</th>
     <td>:</td>
-    <td><input type="text" class="form-control" name="nama_warga" required></td>
+    <td><input type="text" class="form-control" name="nama" required></td>
   </tr>
   <tr>
     <th>Tempat Lahir</th>
     <td>:</td>
-    <td><input type="text" class="form-control" name="tempat_lahir_warga" required></td>
+    <td><input type="text" class="form-control" name="tempat_lahir" required></td>
   </tr>
   <tr>
     <th>Tanggal Lahir</th>
@@ -32,7 +32,7 @@
       <span class="input-group-addon">
         <span class="fa fa-table"></span>
       </span>  
-      <input type="text" class="form-control datepicker input-md" name="tgl_kelahiran" size="20" readonly="readonly" />
+      <input type="text" class="form-control datepicker input-md" name="tanggal_lahir" size="20" readonly="readonly" />
     </div>
     <span class="help-block"> 
     </span>
@@ -44,10 +44,10 @@
     <td>:</td>
     <td>
       <div class="radio">
-        <label class="radio"><input type="radio" name="jenis_kelamin_warga" value="L"> Laki - laki</label>
+        <label class="radio"><input type="radio" name="jenis_kelamin" value="L"> Laki - laki</label>
       </div>
       <div class="radio">
-        <label class="radio"><input type="radio" name="jenis_kelamin_warga" value="L"> Perempuan</label>
+        <label class="radio"><input type="radio" name="jenis_kelamin" value="L"> Perempuan</label>
   </div>
   </td>
   </tr>
@@ -57,29 +57,18 @@
   <tr>
     <th width="20%">Alamat KTP</th>
     <td width="1%">:</td>
-    <td><textarea class="form-control" name="alamat_ktp_warga" required></textarea></td>
+    <td><textarea class="form-control" name="alamat_ktp" required></textarea></td>
   </tr>
   <tr>
     <th>Alamat</th>
     <td>:</td>
-    <td><textarea class="form-control" name="alamat_warga" required></textarea></td>
-  </tr>
-  <tr>
-    <th>Dusun</th>
-    <td>:</td>
-    <td>
-      <select class="form-control selectpicker" name="dusun_warga" required>
-        <option value="" selected disabled>- pilih -</option>
-        <option value="Dukuh">Dukuh</option>
-        <option value="Tarikolot">Tarikolot</option>
-      </select>
-    </td>
+    <td><textarea class="form-control" name="alamat" required></textarea></td>
   </tr>
   <tr>
     <th>RT</th>
     <td>:</td>
     <td>
-      <select class="form-control selectpicker" name="rt_warga" required>
+      <select class="form-control selectpicker" name="rt" required>
         <option value="" selected disabled>- pilih -</option>
         <option value="01">01</option>
         <option value="02">02</option>
@@ -93,35 +82,40 @@
     <th>RW</th>
     <td>:</td>
     <td>
-      <select class="form-control selectpicker" name="rw_warga" required>
+      <select class="form-control selectpicker" name="rw" required>
         <option value="" selected disabled>- pilih -</option>
         <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
       </select>
   </tr>
   <tr>
     <th>Desa/Kelurahan</th>
     <td>:</td>
-    <td><input type="text" class="form-control" name="desa_kelurahan_warga" value="<?php echo $_SESSION['user']['desa_kelurahan_user'] ?>"></td>
+    <td><input type="text" class="form-control" name="desa_kelurahan"></td>
   </tr>
   <tr>
     <th>Kecamatan</th>
     <td>:</td>
-    <td><input type="text" class="form-control" name="kecamatan_warga" value="<?php echo $_SESSION['user']['kecamatan_user'] ?>"></td>
+    <td><input type="text" class="form-control" name="kecamatan"></td>
   </tr>
   <tr>
     <th>Kabupaten/Kota</th>
     <td>:</td>
-    <td><input type="text" class="form-control" name="kabupaten_kota_warga" value="<?php echo $_SESSION['user']['kabupaten_kota_user'] ?>"></td>
+    <td><input type="text" class="form-control" name="kabupaten_kota""></td>
   </tr>
   <tr>
     <th>Provinsi</th>
     <td>:</td>
-    <td><input type="text" class="form-control" name="provinsi_warga" value="<?php echo $_SESSION['user']['provinsi_user'] ?>"></td>
+    <td><input type="text" class="form-control" name="provinsi"></td>
   </tr>
   <tr>
     <th>Negara</th>
     <td>:</td>
-    <td><input type="text" class="form-control" name="negara_warga" value="<?php echo $_SESSION['user']['negara_user'] ?>"></td>
+    <td><input type="text" class="form-control" name="negara"></td>
   </tr>
 </table>
 
@@ -131,7 +125,7 @@
     <th width="20%">Agama</th>
     <td width="1%">:</td>
     <td>
-      <select class="form-control selectlive" name="agama_warga" required>
+      <select class="form-control selectlive" name="agama" required>
         <option value="" selected disabled>- pilih -</option>
         <option value="Islam">Islam</option>
         <option value="Kristen">Kristen</option>
@@ -146,7 +140,7 @@
     <th>Pendidikan Terakhir</th>
     <td>:</td>
     <td>
-      <select class="form-control selectlive" name="pendidikan_terakhir_warga" required>
+      <select class="form-control selectlive" name="pendidikan_terakhir" required>
         <option value="" selected disabled>- pilih -</option>
         <option value="Tidak Sekolah">Tidak Sekolah</option>
         <option value="Tidak Tamat SD">Tidak Tamat SD</option>
@@ -165,18 +159,16 @@
   <tr>
     <th>Pekerjaan</th>
     <td>:</td>
-    <td><input type="text" class="form-control" name="pekerjaan_warga"></td>
+    <td><input type="text" class="form-control" name="pekerjaan"></td>
   </tr>
   <tr>
-    <th>Status Penduduk</th>
+    <th>Status Perkawinan</th>
     <td>:</td>
     <td>
-      <select class="form-control selectpicker" name="status_warga" required>
+      <select class="form-control selectpicker" name="status" required>
         <option value="" selected disabled>- pilih -</option>
-        <option value="Tinggal Tetap">Tinggal Tetap</option>
-        <option value="Meninggal">Meninggal</option>
-        <option value="Pindah Datang">Pindah Datang</option>
-        <option value="Pindah Keluar">Pindah Keluar</option>
+        <option value="Kawin">Kawin</option>
+        <option value="Belum Kawin">Belum Kawin</option>
       </select>
     </td>
   </tr>

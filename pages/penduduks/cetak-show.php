@@ -28,7 +28,7 @@ class PDF extends FPDF
 
         $this->Ln(1);
 
-        $this->Cell(200,8,'DATA WARGA',0,1,'C');
+        $this->Cell(200,8,'DATA PENDUDUK',0,1,'C');
         $this->Ln(2);
 
         $this->SetFont('Times','B',9.5);
@@ -49,11 +49,11 @@ class PDF extends FPDF
 // ambil dari url
 $get_id_pdd = $_GET['id_pdd'];
 // ambil dari database
-$query = "SELECT * FROM warga WHERE id_pdd = $get_id_pdd";
+$query = "SELECT * FROM penduduk WHERE id_pdd = $get_id_pdd";
 $hasil = mysqli_query($db, $query);
-$data_warga = array();
+$data = array();
 while ($row = mysqli_fetch_assoc($hasil)) {
-  $data_warga[] = $row;
+  $data[] = $row;
 }
 
 
@@ -68,79 +68,79 @@ $pdf->SetFont('Times','',12);
 $nomor = 1;
     $pdf->cell(45,7,'NIK',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, strtoupper($data_warga[0]['nik_warga']), 0, 1, 'L');
+    $pdf->cell(80, 7, strtoupper($data[0]['nik']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Nama',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_warga[0]['nama_warga']),0 , 17), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data[0]['nama']),0 , 17), 0, 1, 'L');
 
     $pdf->cell(45,7,'Tempat Lahir',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, strtoupper($data_warga[0]['tempat_lahir_warga']), 0, 1, 'L');
+    $pdf->cell(80, 7, strtoupper($data[0]['tempat_lahir']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Tanggal Lahir',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, ($data_warga[0]['tanggal_lahir_warga'] != '0000-00-00') ? date('d-m-Y', strtotime($data_warga[0]['tanggal_lahir_warga'])) : '', 0, 1, 'L');
+    $pdf->cell(80, 7, ($data[0]['tanggal_lahir'] != '0000-00-00') ? date('d-m-Y', strtotime($data[0]['tanggal_lahir'])) : '', 0, 1, 'L');
 
     $pdf->cell(45,7,'Jenis Kelamin',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_warga[0]['jenis_kelamin_warga']), 0, 1), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data[0]['jenis_kelamin']), 0, 1), 0, 1, 'L');
 
     $pdf->cell(45,7,'Alamat KTP',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_warga[0]['alamat_ktp_warga']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data[0]['alamat_ktp']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Alamat',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_warga[0]['alamat_warga']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data[0]['alamat']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Desa/Kelurahan',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_warga[0]['desa_kelurahan_warga']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data[0]['desa_kelurahan']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Kecamatan',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_warga[0]['kecamatan_warga']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data[0]['kecamatan']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Kabupaten/Kota',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_warga[0]['kabupaten_kota_warga']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data[0]['kabupaten_kota']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Provinsi',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_warga[0]['provinsi_warga']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data[0]['provinsi']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'Negara',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(80, 7, substr(strtoupper($data_warga[0]['negara_warga']), 0, 20), 0, 1, 'L');
+    $pdf->cell(80, 7, substr(strtoupper($data[0]['negara']), 0, 20), 0, 1, 'L');
 
     $pdf->cell(45,7,'RT',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(7, 7, strtoupper($data_warga[0]['rt_warga']), 0, 1, 'L');
+    $pdf->cell(7, 7, strtoupper($data[0]['rt']), 0, 1, 'L');
 
     $pdf->cell(45,7,'RW',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(7, 7, strtoupper($data_warga[0]['rw_warga']), 0, 1, 'L');
+    $pdf->cell(7, 7, strtoupper($data[0]['rw']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Agama',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(20, 7, strtoupper($data_warga[0]['agama_warga']), 0, 1, 'L');
+    $pdf->cell(20, 7, strtoupper($data[0]['agama']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Pendidikan',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(16, 7, strtoupper($data_warga[0]['pendidikan_terakhir_warga']), 0, 1, 'L');
+    $pdf->cell(16, 7, strtoupper($data[0]['pendidikan_terakhir']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Pekerjaan',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(20, 7, strtoupper($data_warga[0]['pekerjaan_warga']), 0, 1, 'L');
+    $pdf->cell(20, 7, strtoupper($data[0]['pekerjaan']), 0, 1, 'L');
 
     $pdf->cell(45,7,'Kawin/Tidak Kawin',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(26, 7, strtoupper($data_warga[0]['status_perkawinan_warga']), 0, 1, 'L');
+    $pdf->cell(26, 7, strtoupper($data[0]['status']), 0, 1, 'L');
 
-    $pdf->cell(45,7,'Status Kependudukan',0,0,'L');
-    $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(24, 7, strtoupper($data_warga[0]['status_warga']), 0, 1, 'L');
+    // $pdf->cell(45,7,'Status Kependudukan',0,0,'L');
+    // $pdf->cell(2,7,':',0,0,'L');
+    // $pdf->cell(24, 7, strtoupper($data[0]['status']), 0, 1, 'L');
 
 	$pdf->Ln(10);
 
