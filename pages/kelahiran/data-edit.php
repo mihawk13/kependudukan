@@ -16,7 +16,7 @@ while ($row = mysqli_fetch_assoc($hasil)) {
 }
 // ambil data KK
 
-$query_keluarga = "SELECT warga.nama_warga, kartu_keluarga.nomor_keluarga, kartu_keluarga.id_keluarga, tbl_kelahiran.id_kelahiran FROM warga JOIN kartu_keluarga ON warga.id_pdd=kartu_keluarga.id_kepala_keluarga JOIN tbl_kelahiran WHERE kartu_keluarga.id_keluarga=tbl_kelahiran.id_keluarga AND tbl_kelahiran.id_kelahiran=$get_id_kelahiran ";
+$query_keluarga = "SELECT penduduk.nama, kartu_keluarga.nomor_kk, kartu_keluarga.id_keluarga, tbl_kelahiran.id_kelahiran FROM penduduk JOIN kartu_keluarga ON penduduk.id_pdd=kartu_keluarga.id_kepala_keluarga JOIN tbl_kelahiran WHERE kartu_keluarga.id_keluarga=tbl_kelahiran.id_keluarga AND tbl_kelahiran.id_kelahiran=$get_id_kelahiran ";
 
 $hasil_keluarga = mysqli_query($db, $query_keluarga);
 

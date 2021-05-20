@@ -2,7 +2,7 @@
 include('../../config/koneksi.php');
 
 // ambil dari database
-# $query = "SELECT *, TIMESTAMPDIFF(YEAR, `tanggal_lahir_warga`, CURDATE()) AS usia_warga FROM warga";
+# $query = "SELECT *, TIMESTAMPDIFF(YEAR, `tanggal_lahir`, CURDATE()) AS usia FROM penduduk";
 $query = "SELECT * FROM tbl_kelahiran";
 
 $hasil = mysqli_query($db, $query);
