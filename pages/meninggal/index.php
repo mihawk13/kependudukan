@@ -26,8 +26,8 @@
     <tr>
       <td><?php echo $nomor++ ?>.</td>
       <td><?php echo ($kematian['tgl_meninggal'] != '0000-00-00') ? date('d-m-Y', strtotime($kematian['tgl_meninggal'])) : ''?></td>
-      <td><?php echo $kematian['nama_warga'] ?></td>
-      <td><?php echo $kematian['jenis_kelamin_warga'] ?></td>
+      <td><?php echo $kematian['nama'] ?></td>
+      <td><?php echo $kematian['jenis_kelamin'] ?></td>
       <td><?php echo $kematian['sebab'] ?></td>
       <td><?php echo $kematian['tempat_kematian'] ?></td>
       <td><?php echo $kematian['nama_pelapor'] ?></td>
@@ -71,20 +71,20 @@
 <!--
 <div class="well">
   <dl class="dl-horizontal">
-    <dt>Total Warga</dt>
-    <dd><?php echo $jumlah_warga['total'] ?> orang</dd>
+    <dt>Total penduduk</dt>
+    <dd><?php echo $jumlah['total'] ?> orang</dd>
 
     <dt>Jumlah Laki-laki</dt>
-    <dd><?php echo $jumlah_warga_l['total'] ?> orang</dd>
+    <dd><?php echo $jumlah_l['total'] ?> orang</dd>
 
     <dt>Jumlah Perempuan</dt>
-    <dd><?php echo $jumlah_warga_p['total'] ?> orang</dd>
+    <dd><?php echo $jumlah_p['total'] ?> orang</dd>
 
-    <dt>Warga < 17 tahun</dt>
-    <dd><?php echo $jumlah_warga_kd_17['total'] ?> orang</dd>
+    <dt>penduduk < 17 tahun</dt>
+    <dd><?php echo $jumlah_kd_17['total'] ?> orang</dd>
 
-    <dt>Warga >= 17 tahun</dt>
-    <dd><?php echo $jumlah_warga_ld_17['total'] ?> orang</dd>
+    <dt>penduduk >= 17 tahun</dt>
+    <dd><?php echo $jumlah_ld_17['total'] ?> orang</dd>
   </dl>
 </div>
 -->

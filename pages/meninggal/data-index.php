@@ -2,9 +2,9 @@
 include('../../config/koneksi.php');
 
 // ambil dari database
-# $query = "SELECT *, TIMESTAMPDIFF(YEAR, `tanggal_lahir_warga`, CURDATE()) AS usia_warga FROM warga";
+# $query = "SELECT *, TIMESTAMPDIFF(YEAR, `tanggal_lahir`, CURDATE()) AS usia FROM penduduk";
 # $query = "SELECT * FROM tbl_meninggal";
-$query = "SELECT *, warga.nama_warga, warga.jenis_kelamin_warga FROM `tbl_meninggal` JOIN warga on warga.id_pdd=tbl_meninggal.id_pdd";
+$query = "SELECT *, penduduk.nama, penduduk.jenis_kelamin FROM `tbl_meninggal` JOIN penduduk on penduduk.id_pdd=tbl_meninggal.id_pdd";
 $hasil = mysqli_query($db, $query);
 
 $data_kematian = array();

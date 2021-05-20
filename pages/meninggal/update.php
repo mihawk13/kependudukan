@@ -10,6 +10,7 @@ include('../../config/koneksi.php');
 # include ('data-cek.php');
 
 // ambil data dari form
+$id_meninggal = htmlspecialchars($_POST['id_meninggal']);
 $id_pdd = htmlspecialchars($_POST['id_pdd']);
 $nama = htmlspecialchars($_POST['nama']);
 $NIK = htmlspecialchars($_POST['NIK']);
@@ -19,9 +20,7 @@ $tempat_kematian = htmlspecialchars($_POST['tempat_kematian']);
 $pelapor = htmlspecialchars($_POST['pelapor']);
 $hub_pelapor = htmlspecialchars($_POST['hub_pelapor']);
 
-
-$query="INSERT INTO tbl_meninggal (tgl_meninggal, sebab, id_pdd, tempat_kematian, nama_pelapor, hubungan_pelapor) VALUES 
-('$tgl_kematian','$penyebab','$id_pdd','$tempat_kematian','$pelapor','$hub_pelapor')";
+$query="UPDATE tbl_meninggal SET tgl_meninggal ='$tgl_kematian', sebab='$penyebab', id_pdd='$id_pdd', tempat_kematian='$tempat_kematian', nama_pelapor='$pelapor', hubungan_pelapor='$hub_pelapor' WHERE id_meninggal= '$id_meninggal'";
 
 # echo "<br>".$query;
 
@@ -34,9 +33,8 @@ $query_exe=mysqli_query($db, $query);
 $query_exe2=mysqli_query($db, $query2);
 
 if ($query_exe2 == TRUE){
-	echo "<script>window.alert('Tambah data kematian berhasil'); window.location.href='../meninggal/index.php'</script>";
+	echo "<script>window.alert('Ubah data kematian berhasil'); window.location.href='../meninggal/index.php'</script>";
 } else {
-	echo "<script>window.alert('Tambah data gagal!'); window.history.back()'</script>";
+	echo "<script>window.alert('Ubah data gagal!'); window.history.back()'</script>";
   		echo mysqli_error($db);
  }
-?>
