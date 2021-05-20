@@ -5,6 +5,6 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$database = "db_warga";
+$database = "penduduk";
 
 $db = mysqli_connect($host, $user, $pass, $database) or die("gagal koneksi ke database");
