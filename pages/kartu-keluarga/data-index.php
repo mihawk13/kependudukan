@@ -2,7 +2,7 @@
 include('../../config/koneksi.php');
 
 // ambil dari database
-$query = "SELECT * FROM kartu_keluarga LEFT JOIN warga ON kartu_keluarga.id_kepala_keluarga = warga.id_pdd";
+$query = "SELECT * FROM kartu_keluarga LEFT JOIN penduduk ON kartu_keluarga.id_kepala_keluarga = penduduk.id_pdd";
 
 $hasil = mysqli_query($db, $query);
 

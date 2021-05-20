@@ -14,7 +14,7 @@
   <tr>
     <th width="20%">Nomor Kartu Keluarga</th>
     <td width="1%">:</td>
-    <td><input type="text" class="form-control" name="nomor_keluarga" required></td>
+    <td><input type="number" class="form-control" name="nomor_kk" required></td>
   </tr>
   <tr>
     <th>ID Kepala Keluarga</th>
@@ -22,9 +22,9 @@
     <td>
       <select class="form-control selectlive" name="id_kepala_keluarga" required>
         <option value="" selected disabled>- pilih -</option>
-        <?php foreach ($data_warga as $warga) : ?>
-        <option value="<?php echo $warga['id_pdd'] ?>">
-          <?php echo $warga['nama_warga'] ?> (NIK: <?php echo $warga['nik_warga'] ?>)
+        <?php foreach ($data as $pdd) : ?>
+        <option value="<?php echo $pdd['id_pdd'] ?>">
+          <?php echo $pdd['nama'] ?> (NIK: <?php echo $pdd['nik'] ?>)
         </option>
         <?php endforeach ?>
       </select>
@@ -32,7 +32,7 @@
   </tr>
 </table>
 
-<h3>B. Data Alamat</h3>
+<!-- <h3>B. Data Alamat</h3>
 <table class="table table-striped table-middle">
   <tr>
     <th width="20%">Alamat</th>
@@ -48,11 +48,6 @@
     <th>RW</th>
     <td>:</td>
     <td><input type="text" class="form-control" name="rw_keluarga" required></td>
-  </tr>
-  <tr>
-    <th>Dusun</th>
-    <td>:</td>
-    <td><input type="text" class="form-control" name="dusun_keluarga" required></td>
   </tr>
   <tr>
     <th>Kode Pos</th>
@@ -85,7 +80,7 @@
     <td>:</td>
     <td><input type="text" class="form-control" name="negara_keluarga" value="<?php echo $_SESSION['user']['negara_user'] ?>" required></td>
   </tr>
-</table>
+</table> -->
 
 <button type="submit" class="btn btn-success">
   <i class="fa fa-save"></i> Simpan

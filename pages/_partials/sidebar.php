@@ -17,14 +17,14 @@ function is_active($page)
     <li class="<?php is_active('penduduks'); ?>">
       <a href="../penduduks"><i class="fa fa-user"></i> Data Penduduk</a>
     </li>
+    <li class="<?php is_active('kartu-keluarga'); ?>">
+      <a href="../kartu-keluarga"><i class="fa fa-user fa-group"></i> Data Kartu Keluarga</a>
+    </li>
     <li class="<?php is_active('meninggal'); ?>">
       <a href="../meninggal"><i class="fa fa-ambulance"></i> Data Kematian</a>
     </li>
     <li class="<?php is_active('kelahiran'); ?>">
       <a href="../kelahiran"><i class="fa fa-venus-mars"></i> Data Kelahiran</a>
-    </li>
-    <li class="<?php is_active('kartu-keluarga'); ?>">
-      <a href="../kartu-keluarga"><i class="fa fa-user fa-group"></i> Data Kartu Keluarga</a>
     </li>
     <li class="<?php is_active('mutasi-datang'); ?>">
       <a href="../mutasi-datang"><i class="fa fa-long-arrow-right"></i> Data Penduduk Masuk</a>

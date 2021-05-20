@@ -2,15 +2,15 @@
 include('../../config/koneksi.php');
 
 // ambil dari database
-$query = "SELECT * FROM warga";
-/*SELECT warga.nik_warga, warga.nama_warga from warga INNER JOIN kartu_keluarga WHERE warga.nik_warga <> kartu_keluarga.id_kepala_keluarga
+$query = "SELECT * FROM penduduk";
+/*SELECT penduduk.nik, penduduk.nama from penduduk INNER JOIN kartu_keluarga WHERE penduduk.nik <> kartu_keluarga.id_kepala_keluarga
 
-$query="SELECT warga.id_pdd, warga.nik_warga, warga.nama_warga from warga INNER JOIN kartu_keluarga WHERE warga.id_pdd <> kartu_keluarga.id_kepala_keluarga";
+$query="SELECT penduduk.id_pdd, penduduk.nik, penduduk.nama from penduduk INNER JOIN kartu_keluarga WHERE penduduk.id_pdd <> kartu_keluarga.id_kepala_keluarga";
 */
 $hasil = mysqli_query($db, $query);
 
-$data_warga = array();
+$data = array();
 
 while ($row = mysqli_fetch_assoc($hasil)) {
-  $data_warga[] = $row;
+  $data[] = $row;
 }

@@ -58,7 +58,7 @@ class PDF extends FPDF
 }
 
 // ambil dari database
-$query = "SELECT * FROM kartu_keluarga LEFT JOIN warga ON kartu_keluarga.id_kepala_keluarga = warga.id_pdd";
+$query = "SELECT * FROM kartu_keluarga LEFT JOIN penduduk ON kartu_keluarga.id_kepala_keluarga = penduduk.id_pdd";
 $hasil = mysqli_query($db, $query);
 $data_kartu_keluarga = array();
 while ($row = mysqli_fetch_assoc($hasil)) {
@@ -78,14 +78,14 @@ $nomor = 1;
 foreach ($data_kartu_keluarga as $kartu_keluarga) {
 
     // hitung anggota
-    $query_jumlah_anggota = "SELECT COUNT(*) AS total FROM warga_has_kartu_keluarga WHERE id_keluarga = ".$kartu_keluarga['id_keluarga'];
+    $query_jumlah_anggota = "SELECT COUNT(*) AS total FROM penduduk_has_kartu_keluarga WHERE id_keluarga = ".$kartu_keluarga['id_keluarga'];
     $hasil_jumlah_anggota = mysqli_query($db, $query_jumlah_anggota);
     $jumlah_jumlah_anggota = mysqli_fetch_assoc($hasil_jumlah_anggota);
 
     $pdf->cell(10, 7, $nomor++ . '.', 1, 0, 'C');
-    $pdf->cell(30, 7, strtoupper($kartu_keluarga['nomor_keluarga']), 1, 0, 'C');
-    $pdf->cell(75, 7, strtoupper($kartu_keluarga['nama_warga']), 1, 0, 'L');
-    $pdf->cell(30, 7, strtoupper($kartu_keluarga['nik_warga']), 1, 0, 'C');
+    $pdf->cell(30, 7, strtoupper($kartu_keluarga['nomor_kk']), 1, 0, 'C');
+    $pdf->cell(75, 7, strtoupper($kartu_keluarga['nama']), 1, 0, 'L');
+    $pdf->cell(30, 7, strtoupper($kartu_keluarga['nik']), 1, 0, 'C');
     $pdf->cell(35, 7, strtoupper($jumlah_jumlah_anggota['total']), 1, 0, 'C');
     $pdf->cell(98, 7, strtoupper($kartu_keluarga['alamat_keluarga']), 1, 0, 'L');
     $pdf->cell(15, 7, strtoupper($kartu_keluarga['rt_keluarga']), 1, 0, 'C');

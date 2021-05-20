@@ -5,7 +5,7 @@ include('../../config/koneksi.php');
 $get_id_keluarga = $_GET['id_keluarga'];
 
 // ambil dari database
-$query = "SELECT * FROM kartu_keluarga LEFT JOIN warga ON kartu_keluarga.id_kepala_keluarga = warga.id_pdd WHERE id_keluarga = $get_id_keluarga";
+$query = "SELECT * FROM kartu_keluarga LEFT JOIN penduduk ON kartu_keluarga.id_kepala_keluarga = penduduk.id_pdd WHERE id_keluarga = $get_id_keluarga";
 
 $hasil = mysqli_query($db, $query);
 
@@ -17,9 +17,9 @@ while ($row = mysqli_fetch_assoc($hasil)) {
 
 // ambil data anggota keluarga
 $query_anggota = "SELECT *
-from warga INNER JOIN warga_has_kartu_keluarga
-ON warga_has_kartu_keluarga.id_pdd = warga.id_pdd
-WHERE warga.status_warga != 'Meninggal' AND warga_has_kartu_keluarga.id_keluarga = $get_id_keluarga";
+from penduduk INNER JOIN penduduk_has_kartu_keluarga
+ON penduduk_has_kartu_keluarga.id_pdd = penduduk.id_pdd
+WHERE penduduk.status != 'Meninggal' AND penduduk_has_kartu_keluarga.id_keluarga = $get_id_keluarga";
 
 $hasil_anggota = mysqli_query($db, $query_anggota);
 
@@ -29,13 +29,13 @@ while ($row_anggota = mysqli_fetch_assoc($hasil_anggota)) {
   $data_anggota_keluarga[] = $row_anggota;
 }
 
-// data warga
+// data penduduk
 // ambil dari database
-$query_warga = "SELECT * FROM warga";
-$hasil_warga = mysqli_query($db, $query_warga);
+$query = "SELECT * FROM penduduk";
+$hasil = mysqli_query($db, $query);
 
-$data_warga = array();
+$data = array();
 
-while ($row_warga = mysqli_fetch_assoc($hasil_warga)) {
-  $data_warga[] = $row_warga;
+while ($row = mysqli_fetch_assoc($hasil)) {
+  $data[] = $row;
 }

@@ -13,17 +13,17 @@
   <tr>
     <th width="20%">Nomor Kartu Keluarga</th>
     <td width="1%">:</td>
-    <td><?php echo $data_keluarga[0]['nomor_keluarga'] ?></td>
+    <td><?php echo $data_keluarga[0]['nomor_kk'] ?></td>
   </tr>
   <tr>
     <th>Kepala Keluarga</th>
     <td>:</td>
-    <td><?php echo $data_keluarga[0]['nama_warga'] ?></td>
+    <td><?php echo $data_keluarga[0]['nama'] ?></td>
   </tr>
   <tr>
     <th>NIK Kepala Keluarga</th>
     <td>:</td>
-    <td><?php echo $data_keluarga[0]['nik_warga'] ?></td>
+    <td><?php echo $data_keluarga[0]['nik'] ?></td>
   </tr>
 </table>
 
@@ -43,11 +43,6 @@
     <th>RW</th>
     <td>:</td>
     <td><?php echo $data_keluarga[0]['rw_keluarga'] ?></td>
-  </tr>
-  <tr>
-    <th>Dusun</th>
-    <td>:</td>
-    <td><?php echo $data_keluarga[0]['dusun_keluarga'] ?></td>
   </tr>
   <tr>
     <th>Desa/Kelurahan</th>
@@ -106,7 +101,7 @@
     <tr>
       <th>#</th>
       <th>NIK</th>
-      <th>Nama Warga</th>
+      <th>Nama</th>
       <th>Tempat Lahir</th>
       <th>Lahir</th>
       <th>Pendidikan</th>
@@ -121,15 +116,15 @@
     <?php foreach ($data_anggota_keluarga as $anggota_keluarga) : ?>
     <tr>
       <td><?php echo $nomor++ ?>.</td>
-      <td><?php echo $anggota_keluarga['nik_warga'] ?></td>
-      <td><?php echo $anggota_keluarga['nama_warga'] ?></td>
-      <td><?php echo $anggota_keluarga['tempat_lahir_warga'] ?></td>
+      <td><?php echo $anggota_keluarga['nik'] ?></td>
+      <td><?php echo $anggota_keluarga['nama'] ?></td>
+      <td><?php echo $anggota_keluarga['tempat_lahir'] ?></td>
       <td>
-        <?php echo ($anggota_keluarga['tanggal_lahir_warga'] != '0000-00-00') ? date('d-m-Y', strtotime($anggota_keluarga['tanggal_lahir_warga'])) : ''?>
+        <?php echo ($anggota_keluarga['tanggal_lahir'] != '0000-00-00') ? date('d-m-Y', strtotime($anggota_keluarga['tanggal_lahir'])) : ''?>
       </td>
-      <td><?php echo $anggota_keluarga['pendidikan_terakhir_warga'] ?></td>
-      <td><?php echo $anggota_keluarga['pekerjaan_warga'] ?></td>
-      <td><?php echo $anggota_keluarga['status_warga'] ?></td>
+      <td><?php echo $anggota_keluarga['pendidikan_terakhir'] ?></td>
+      <td><?php echo $anggota_keluarga['pekerjaan'] ?></td>
+      <td><?php echo $anggota_keluarga['status'] ?></td>
       <td>
         <!-- Single button -->
         <div class="btn-group pull-right">
@@ -138,7 +133,7 @@
           </button>
           <ul class="dropdown-menu pull-right" role="menu">
             <li>
-              <a href="../warga/show.php?id_pdd=<?php echo $anggota_keluarga['id_pdd'] ?>">
+              <a href="../penduduks/show.php?id_pdd=<?php echo $anggota_keluarga['id_pdd'] ?>">
                 <span class="glyphicon glyphicon-sunglasses"></span> Detail
               </a>
             </li>

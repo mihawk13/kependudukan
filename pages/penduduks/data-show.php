@@ -8,7 +8,7 @@ $get_id_pdd = $_GET['id_pdd'];
 $query = "SELECT * FROM penduduk WHERE id_pdd = $get_id_pdd";
 # $query_kk = "SELECT * FROM penduduk JOIN kartu_keluarga ON penduduk.id_pdd=kartu_keluarga.id_kepala_keluarga WHERE penduduk.id_pdd=$get_id_pdd";
 
- $query_kk = "SELECT * FROM penduduk left JOIN penduduk_has_kartu_keluarga ON penduduk_has_kartu_keluarga.id_pdd=penduduk.id_pdd JOIN kartu_keluarga on kartu_keluarga.id_keluarga=penduduk_has_kartu_keluarga.id_keluarga WHERE penduduk.id_pdd=$get_id_pdd";
+$query_kk = "SELECT * FROM penduduk left JOIN penduduk_has_kartu_keluarga ON penduduk_has_kartu_keluarga.id_pdd=penduduk.id_pdd JOIN kartu_keluarga on kartu_keluarga.id_keluarga=penduduk_has_kartu_keluarga.id_keluarga WHERE penduduk.id_pdd=$get_id_pdd";
 
 #$query_kk = "SELECT * FROM penduduk left JOIN penduduk_has_kartu_keluarga ON penduduk_has_kartu_keluarga.id_pdd=penduduk.id_pdd WHERE penduduk.id_pdd=$get_id_pdd";
 

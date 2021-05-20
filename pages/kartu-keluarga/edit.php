@@ -14,76 +14,21 @@
   <tr>
     <th width="20%">Nomor Kartu Keluarga</th>
     <td width="1%">:</td>
-    <td><input type="text" class="form-control" name="nomor_keluarga" value="<?php echo $data_keluarga[0]['nomor_keluarga'] ?>" readonly></td>
+    <td><input type="text" class="form-control" name="nomor_kk" value="<?php echo $data_keluarga[0]['nomor_kk'] ?>" readonly></td>
   </tr>
   <tr>
     <th>Kepala Keluarga</th>
     <td>:</td>
     <td>
       <select class="form-control selectlive" name="id_kepala_keluarga" required>
-        <option value="<?php echo $data_keluarga[0]['id_pdd'] ?>" selected><?php echo $data_keluarga[0]['nama_warga'] ?></option>
-        <?php foreach ($data_warga as $warga) : ?>
-        <option value="<?php echo $warga['id_pdd'] ?>">
-          <?php echo $warga['nama_warga'] ?> (NIK: <?php echo $warga['nik_warga'] ?>)
+        <option value="<?php echo $data_keluarga[0]['id_pdd'] ?>" selected><?php echo $data_keluarga[0]['nama'] ?></option>
+        <?php foreach ($data as $pdd) : ?>
+        <option value="<?php echo $pdd['id_pdd'] ?>">
+          <?php echo $pdd['nama'] ?> (NIK: <?php echo $pdd['nik'] ?>)
         </option>
         <?php endforeach ?>
       </select>
     </td>
-  </tr>
-</table>
-
-<h3>B. Data Alamat</h3>
-<table class="table table-striped">
-  <tr>
-    <th width="20%">Alamat</th>
-    <td width="1%">:</td>
-    <td><input type="text" class="form-control" name="alamat_keluarga" value="<?php echo $data_keluarga[0]['alamat_keluarga'] ?>"></td>
-  </tr>
-  <tr>
-    <th>RT</th>
-    <td>:</td>
-    <td><input type="text" class="form-control" name="rt_keluarga" value="<?php echo $data_keluarga[0]['rt_keluarga'] ?>"></td>
-  </tr>
-  <tr>
-    <th>RW</th>
-    <td>:</td>
-    <td><input type="text" class="form-control" name="rw_keluarga" value="<?php echo $data_keluarga[0]['rw_keluarga'] ?>"></td>
-  </tr>
-  <tr>
-    <th>Dusun</th>
-    <td>:</td>
-    <td><input type="text" class="form-control" name="dusun_keluarga" value="<?php echo $data_keluarga[0]['dusun_keluarga'] ?>"></td>
-  </tr>
-
-  <tr>
-    <th>Kode Pos</th>
-    <td>:</td>
-    <td><input type="text" class="form-control" name="kode_pos_keluarga" value="<?php echo $data_keluarga[0]['kode_pos_keluarga'] ?>"></td>
-  </tr>
-  <tr>
-    <th>Desa/Kelurahan</th>
-    <td>:</td>
-    <td><input type="text" class="form-control" name="desa_kelurahan_keluarga" value="<?php echo $data_keluarga[0]['desa_kelurahan_keluarga'] ?>"></td>
-  </tr>
-  <tr>
-    <th>Kecamatan</th>
-    <td>:</td>
-    <td><input type="text" class="form-control" name="kecamatan_keluarga" value="<?php echo $data_keluarga[0]['kecamatan_keluarga'] ?>"></td>
-  </tr>
-  <tr>
-    <th>Kabupaten/Kota</th>
-    <td>:</td>
-    <td><input type="text" class="form-control" name="kabupaten_kota_keluarga" value="<?php echo $data_keluarga[0]['kabupaten_kota_keluarga'] ?>"></td>
-  </tr>
-  <tr>
-    <th>Provinsi</th>
-    <td>:</td>
-    <td><input type="text" class="form-control" name="provinsi_keluarga" value="<?php echo $data_keluarga[0]['provinsi_keluarga'] ?>"></td>
-  </tr>
-  <tr>
-    <th>Negara</th>
-    <td>:</td>
-    <td><input type="text" class="form-control" name="negara_keluarga" value="<?php echo $data_keluarga[0]['negara_keluarga'] ?>"></td>
   </tr>
 </table>
 

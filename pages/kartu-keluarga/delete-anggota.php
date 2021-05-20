@@ -13,7 +13,7 @@ $id_pdd = htmlspecialchars($_GET['id_pdd']);
 $id_keluarga = htmlspecialchars($_GET['id_keluarga']);
 
 // delete database
-$query = "DELETE FROM warga_has_kartu_keluarga WHERE id_pdd = $id_pdd AND id_keluarga = $id_keluarga";
+$query = "DELETE FROM penduduk_has_kartu_keluarga WHERE id_pdd = $id_pdd AND id_keluarga = $id_keluarga";
 
 $hasil = mysqli_query($db, $query);
 

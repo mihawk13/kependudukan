@@ -9,7 +9,7 @@ if (!isset($_SESSION['user'])) {
 include('../../config/koneksi.php');
 
 // ambil data dari form
-$nomor_keluarga = htmlspecialchars($_POST['nomor_keluarga']);
+$nomor_kk = htmlspecialchars($_POST['nomor_kk']);
 $id_kepala_keluarga = htmlspecialchars($_POST['id_kepala_keluarga']);
 
 $alamat_keluarga = htmlspecialchars($_POST['alamat_keluarga']);
@@ -28,7 +28,7 @@ $id_user = $_SESSION['user']['id_user'];
 
 //cek NIK yang sudah terdaftar
 
-$query_cek_kk="SELECT nomor_keluarga from kartu_keluarga where nomor_keluarga=$nomor_keluarga";
+$query_cek_kk="SELECT nomor_kk from kartu_keluarga where nomor_kk=$nomor_kk";
 $query_cek_nik="SELECT id_kepala_keluarga from kartu_keluarga WHERE id_kepala_keluarga=$id_kepala_keluarga";
 	
 $cek_kk=mysqli_num_rows(mysqli_query($db, $query_cek_kk));
@@ -37,7 +37,7 @@ $cek_nik=mysqli_num_rows(mysqli_query($db, $query_cek_nik));
 //echo $cek_nik;
 /*
 if($cek_kk>0){
-	echo "<script>window.alert('No Kartu Keluarga $nomor_keluarga sudah terdaftar !');</script>";
+	echo "<script>window.alert('No Kartu Keluarga $nomor_kk sudah terdaftar !');</script>";
 */		
 	# cek NIK terdaftar di no kk yang belum terdaftar 
 	if ($cek_nik>0){
@@ -62,7 +62,7 @@ if($cek_kk>0){
 
 // masukkan ke database
 
-$query = "UPDATE kartu_keluarga SET nomor_keluarga = '$nomor_keluarga', id_kepala_keluarga = '$id_kepala_keluarga', alamat_keluarga = '$alamat_keluarga', desa_kelurahan_keluarga = '$desa_kelurahan_keluarga', kecamatan_keluarga = '$kecamatan_keluarga', kabupaten_kota_keluarga = '$kabupaten_kota_keluarga', provinsi_keluarga = '$provinsi_keluarga', negara_keluarga = '$negara_keluarga', rt_keluarga = '$rt_keluarga', rw_keluarga = '$rw_keluarga', kode_pos_keluarga = '$kode_pos_keluarga', id_user = '$id_user', updated_at = CURRENT_TIMESTAMP WHERE kartu_keluarga.id_keluarga = $id_keluarga;";
+$query = "UPDATE kartu_keluarga SET nomor_kk = '$nomor_kk', id_kepala_keluarga = '$id_kepala_keluarga', alamat_keluarga = '$alamat_keluarga', desa_kelurahan_keluarga = '$desa_kelurahan_keluarga', kecamatan_keluarga = '$kecamatan_keluarga', kabupaten_kota_keluarga = '$kabupaten_kota_keluarga', provinsi_keluarga = '$provinsi_keluarga', negara_keluarga = '$negara_keluarga', rt_keluarga = '$rt_keluarga', rw_keluarga = '$rw_keluarga', kode_pos_keluarga = '$kode_pos_keluarga', id_user = '$id_user', updated_at = CURRENT_TIMESTAMP WHERE kartu_keluarga.id_keluarga = $id_keluarga;";
 
 $hasil = mysqli_query($db, $query);
 
