@@ -32,7 +32,7 @@ $id_pdd = htmlspecialchars($_POST['id_pdd']);
 
 // update database
 
-$query = "UPDATE penduduk SET nik = '$nik', nama = '$nama', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal_lahir', jenis_kelamin = '$jenis_kelamin', alamat_ktp = '$alamat_ktp', alamat = '$alamat', desa_kelurahan = '$desa_kelurahan', kecamatan = '$kecamatan', kabupaten_kota = '$kabupaten_kota', provinsi = '$provinsi', negara = '$negara',rt = '$rt', rw = '$rw', agama = '$agama', pendidikan_terakhir = '$pendidikan_terakhir', pekerjaan = '$pekerjaan', status = '$status' WHERE penduduk.id_pdd = $id_pdd;";
+$query = "UPDATE penduduk SET nik = '$nik', nama = '$nama', tempat_lahir = '$tempat_lahir', tanggal_lahir = '$tanggal_lahir', jenis_kelamin = '$jenis_kelamin', alamat_ktp = '$alamat_ktp', alamat = '$alamat', desa_kelurahan = '$desa_kelurahan', kecamatan = '$kecamatan', kabupaten_kota = '$kabupaten_kota', provinsi = '$provinsi', negara = '$negara',rt = '$rt', rw = '$rw', agama = '$agama', pendidikan_terakhir = '$pendidikan_terakhir', pekerjaan = '$pekerjaan', status_perkawinan = '$status' WHERE penduduk.id_pdd = $id_pdd;";
 
 $hasil = mysqli_query($db, $query);
 

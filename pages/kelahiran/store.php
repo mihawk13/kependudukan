@@ -33,7 +33,7 @@ $desa_kk = htmlspecialchars($_POST['desa_kk']);
 $rt_kk = htmlspecialchars($_POST['rw_kk']);
 $rw_kk = htmlspecialchars($_POST['rt_kk']);
 
-$query2 = "INSERT INTO penduduk (id_pdd, nik, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat_ktp, alamat, desa_kelurahan, kecamatan, kabupaten_kota, provinsi, negara, rt, rw, agama, pendidikan_terakhir, pekerjaan, status) VALUES ('$id_pdd', '$nik_sementara', '$nama_bayi', '$tempat_lahir', '$tgl_kelahiran', '$jk', '$alamat_kk', '$alamat_kk', '$desa_kk', 'Ruteng', 'Manggarai', 'Nusa Tenggara Timur', 'INDONESIA', '$rt_kk', '$rw_kk', 'Kristen', '-', '-', 'Belum Kawin');";
+$query2 = "INSERT INTO penduduk (id_pdd, nik, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat_ktp, alamat, desa_kelurahan, kecamatan, kabupaten_kota, provinsi, negara, rt, rw, agama, pendidikan_terakhir, pekerjaan, status_perkawinan, status_kependudukan) VALUES ('$id_pdd', '$nik_sementara', '$nama_bayi', '$tempat_lahir', '$tgl_kelahiran', '$jk', '$alamat_kk', '$alamat_kk', '$desa_kk', 'Ruteng', 'Manggarai', 'Nusa Tenggara Timur', 'INDONESIA', '$rt_kk', '$rw_kk', 'Kristen', '-', '-', 'Belum Kawin', 'Penduduk Asli');";
 
 
 $hasil2 = mysqli_query($db, $query2);

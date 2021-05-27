@@ -6,8 +6,8 @@ $query = "SELECT * FROM user";
 
 $hasil = mysqli_query($db, $query);
 
-$data_user = array();
+$data = array();
 
 while ($row = mysqli_fetch_assoc($hasil)) {
-  $data_user[] = $row;
+  $data[] = $row;
 }

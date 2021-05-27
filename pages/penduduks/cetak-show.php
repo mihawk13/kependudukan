@@ -134,9 +134,9 @@ $nomor = 1;
     $pdf->cell(2,7,':',0,0,'L');
     $pdf->cell(20, 7, strtoupper($data[0]['pekerjaan']), 0, 1, 'L');
 
-    $pdf->cell(45,7,'Kawin/Tidak Kawin',0,0,'L');
+    $pdf->cell(45,7,'Status',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(26, 7, strtoupper($data[0]['status']), 0, 1, 'L');
+    $pdf->cell(26, 7, strtoupper($data[0]['status_kependudukan']), 0, 1, 'L');
 
     // $pdf->cell(45,7,'Status Kependudukan',0,0,'L');
     // $pdf->cell(2,7,':',0,0,'L');

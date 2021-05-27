@@ -34,7 +34,7 @@
         <td><?php echo $kematian['hubungan_pelapor'] ?></td>
         <td>
           <!-- Single button -->
-          <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+          <?php if ($_SESSION['user']['status'] != 'Lurah') : ?>
             <div class="btn-group pull-right">
               <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                 <span class="caret"></span>

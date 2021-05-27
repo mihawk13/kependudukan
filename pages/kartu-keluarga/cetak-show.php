@@ -149,15 +149,12 @@ $nomor = 1;
   $pdf->cell(8,7,'NO.',1,0,'C');
   $pdf->cell(23,7,'NIK',1,0,'C');
   $pdf->cell(40,7,'NAMA',1,0,'C');
-  $pdf->cell(35,7,'TEMPAT LHR',1,0,'C');
+  $pdf->cell(45,7,'TEMPAT LHR',1,0,'C');
   $pdf->cell(20,7,'TGL. LHR',1,0,'C');
   $pdf->cell(8,7,'JK',1,0,'C');
-  $pdf->cell(50,7,'ALAMAT',1,0,'C');
-  $pdf->cell(7,7,'RT',1,0,'C');
-  $pdf->cell(7,7,'RW',1,0,'C');
-  $pdf->cell(20,7,'AGAMA',1,0,'C');
-  $pdf->cell(26,7,'PERNIKAHAN',1,0,'C');
-  $pdf->cell(16,7,'PDDKN',1,0,'C');
+  $pdf->cell(25,7,'AGAMA',1,0,'C');
+  $pdf->cell(35,7,'PERNIKAHAN',1,0,'C');
+  $pdf->cell(30,7,'PDDKN',1,0,'C');
   $pdf->cell(44,7,'KERJA',1,1,'C');
 
   // set font
@@ -170,15 +167,12 @@ $nomor = 1;
       $pdf->cell(8, 7, $nomor++ . '.', 1, 0, 'C');
       $pdf->cell(23, 7, strtoupper($anggota_keluarga['nik']), 1, 0, 'C');
       $pdf->cell(40, 7, substr(strtoupper($anggota_keluarga['nama']),0 , 17), 1, 0, 'L');
-      $pdf->cell(35, 7, strtoupper($anggota_keluarga['tempat_lahir']), 1, 0, 'L');
+      $pdf->cell(45, 7, strtoupper($anggota_keluarga['tempat_lahir']), 1, 0, 'L');
       $pdf->cell(20, 7, ($anggota_keluarga['tanggal_lahir'] != '0000-00-00') ? date('d-m-Y', strtotime($anggota_keluarga['tanggal_lahir'])) : '', 1, 0, 'C');
       $pdf->cell(8, 7, substr(strtoupper($anggota_keluarga['jenis_kelamin']), 0, 1), 1, 0, 'C');
-      $pdf->cell(50, 7, substr(strtoupper($anggota_keluarga['alamat']), 0, 20), 1, 0, 'L');
-      $pdf->cell(7, 7, strtoupper($anggota_keluarga['rt']), 1, 0, 'C');
-      $pdf->cell(7, 7, strtoupper($anggota_keluarga['rw']), 1, 0, 'C');
-      $pdf->cell(20, 7, strtoupper($anggota_keluarga['agama']), 1, 0, 'C');
-      $pdf->cell(26, 7, strtoupper($anggota_keluarga['status']), 1, 0, 'C');
-      $pdf->cell(16, 7, strtoupper($anggota_keluarga['pendidikan_terakhir']), 1, 0, 'C');
+      $pdf->cell(25, 7, strtoupper($anggota_keluarga['agama']), 1, 0, 'C');
+      $pdf->cell(35, 7, strtoupper($anggota_keluarga['status_perkawinan']), 1, 0, 'C');
+      $pdf->cell(30, 7, strtoupper($anggota_keluarga['pendidikan_terakhir']), 1, 0, 'C');
       $pdf->cell(44, 7, strtoupper($anggota_keluarga['pekerjaan']), 1, 1, 'C');
   }
 

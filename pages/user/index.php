@@ -17,13 +17,13 @@
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($data_user as $user) : ?>
+    <?php foreach ($data as $user) : ?>
     <tr>
-      <td><?php echo $user['id_user'] ?></td>
-      <td><?php echo $user['nama_user'] ?></td>
-      <td><?php echo $user['username_user'] ?></td>
-      <td><?php echo $user['keterangan_user'] ?></td>
-      <td><?php echo $user['status_user'] ?></td>
+      <td><?php echo $user['id'] ?></td>
+      <td><?php echo $user['nama'] ?></td>
+      <td><?php echo $user['username'] ?></td>
+      <td><?php echo $user['keterangan'] ?></td>
+      <td><?php echo $user['status'] ?></td>
       <td>
         <!-- Single button -->
         <div class="btn-group pull-right">
@@ -32,15 +32,11 @@
           </button>
           <ul class="dropdown-menu pull-right" role="menu">
             <li>
-              <a href="show.php?id_user=<?php echo $user['id_user'] ?>"><i class="glyphicon glyphicon-sunglasses"></i> Detail</a>
+              <a href="edit.php?id=<?php echo $user['id'] ?>"><span class="glyphicon glyphicon-edit"></span> Ubah</a>
             </li>
             <li class="divider"></li>
             <li>
-              <a href="edit.php?id_user=<?php echo $user['id_user'] ?>"><span class="glyphicon glyphicon-edit"></span> Ubah</a>
-            </li>
-            <li class="divider"></li>
-            <li>
-              <a href="delete.php?id_user=<?php echo $user['id_user'] ?>" onclick="return confirm('Yakin hapus data ini?')">
+              <a href="delete.php?id=<?php echo $user['id'] ?>" onclick="return confirm('Yakin hapus data ini?')">
                 <i class="glyphicon glyphicon-trash"></i> Hapus
               </a>
             </li>

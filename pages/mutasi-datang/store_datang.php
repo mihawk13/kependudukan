@@ -17,14 +17,13 @@ $tanggal_lahir = htmlspecialchars($_POST['tanggal_lahir']);
 $jenis_kelamin = htmlspecialchars($_POST['jk']);
 $agama = htmlspecialchars($_POST['agama']);
 $pendidikan_terakhir = htmlspecialchars($_POST['pendidikan_terakhir']);
+$status_perkawinan = htmlspecialchars($_POST['status_perkawinan']);
 $pekerjaan = htmlspecialchars($_POST['pekerjaan']);
 $rt = htmlspecialchars($_POST['rt']);
 $rw = htmlspecialchars($_POST['rw']);
-$status = 'Kawin';
 $alamat_asal = htmlspecialchars($_POST['alamat_asal']);
 $tanggal_pindah = htmlspecialchars($_POST['tanggal_pindah']);
 $alasan_pindah = htmlspecialchars($_POST['alasan_pindah']);
-$jenis_kepindahan = htmlspecialchars($_POST['jenis_kepindahan']);
 
 $query_cek = "SELECT nomor_kk from kartu_keluarga where nomor_kk=$nomor_kk";
 $cek_nik = mysqli_num_rows(mysqli_query($db, $query_cek));
@@ -35,7 +34,7 @@ if ($cek_nik > 0) {
   //echo $query_cek;
   // masukkan ke database
 
-  $query = "INSERT INTO penduduk (nik, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat_ktp, alamat, desa_kelurahan, kecamatan, kabupaten_kota, provinsi, negara, rt, rw, agama, pendidikan_terakhir, pekerjaan, status) VALUES ('$nik', '$nama_kepala_keluarga', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$alamat_asal', '$alamat_asal', 'Wae Belang', 'Ruteng', 'Manggarai', 'Nusa Tenggara Timur', 'Indonesia', '$rt', '$rw', '$agama', '$pendidikan_terakhir', '$pekerjaan', '$status');";
+  $query = "INSERT INTO penduduk (nik, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat_ktp, alamat, desa_kelurahan, kecamatan, kabupaten_kota, provinsi, negara, rt, rw, agama, pendidikan_terakhir, pekerjaan, status_perkawinan, status_kependudukan) VALUES ('$nik', '$nama_kepala_keluarga', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$alamat_asal', '$alamat_asal', 'Wae Belang', 'Ruteng', 'Manggarai', 'Nusa Tenggara Timur', 'Indonesia', '$rt', '$rw', '$agama', '$pendidikan_terakhir', '$pekerjaan', '$status_perkawinan', 'Pindahan');";
   $hasil = mysqli_query($db, $query);
   //echo $query;
 
@@ -59,7 +58,7 @@ if ($cek_nik > 0) {
   // echo "<br>" . $id_keluarga . "<br>";
 
 
-  $query_mutasi = "INSERT INTO mutasi_masuk (id_pdd, id_kk, rt_masuk,rw_masuk,alamat_asal,tanggal_pindah,alasan_pindah,jenis_kepindahan) VALUES('$id_pdd','$id_keluarga','$rt','$rw','$alamat_asal','$tanggal_pindah','$alasan_pindah','$jenis_kepindahan');";
+  $query_mutasi = "INSERT INTO mutasi_masuk (id_pdd, id_kk, rt_masuk,rw_masuk,alamat_asal,tanggal_pindah,alasan_pindah) VALUES('$id_pdd','$id_keluarga','$rt','$rw','$alamat_asal','$tanggal_pindah','$alasan_pindah')";
   $hasil = mysqli_query($db, $query_mutasi);
 
   //cek keberhasilan pendambahan data

@@ -138,7 +138,16 @@ $nomor = 1;
 
     $pdf->cell(45,7,'Kawin/Tidak Kawin',0,0,'L');
     $pdf->cell(2,7,':',0,0,'L');
-    $pdf->cell(26, 7, strtoupper($data_mutasi[0]['status']), 0, 1, 'L');
+    $pdf->cell(26, 7, strtoupper($data_mutasi[0]['status_perkawinan']), 0, 1, 'L');
+
+    $pdf->cell(45,7,'Tanggal Pindah',0,0,'L');
+    $pdf->cell(2,7,':',0,0,'L');
+    $pdf->cell(80, 7, ($data_mutasi[0]['tanggal_pindah'] != '0000-00-00') ? date('d-m-Y', strtotime($data_mutasi[0]['tanggal_pindah'])) : '', 0, 1, 'L');
+
+
+    $pdf->cell(45,7,'Alasan Pindah',0,0,'L');
+    $pdf->cell(2,7,':',0,0,'L');
+    $pdf->cell(26, 7, strtoupper($data_mutasi[0]['alasan_pindah']), 0, 1, 'L');
 	$pdf->Ln(10);
 
 $pdf->Output();

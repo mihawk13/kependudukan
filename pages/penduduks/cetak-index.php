@@ -98,7 +98,7 @@ foreach ($data as $pdd) {
     $pdf->cell(26, 7, strtoupper($pdd['status_perkawinan']), 1, 0, 'C');
     $pdf->cell(16, 7, strtoupper($pdd['pendidikan_terakhir']), 1, 0, 'C');
     $pdf->cell(20, 7, strtoupper($pdd['pekerjaan']), 1, 0, 'C');
-    $pdf->cell(24, 7, strtoupper($pdd['status']), 1, 1, 'C');
+    $pdf->cell(24, 7, strtoupper($pdd['status_kependudukan']), 1, 1, 'C');
 }
 
 	$pdf->Ln(10);

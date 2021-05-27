@@ -4,7 +4,7 @@ include('../../config/koneksi.php');
 // ambil dari url
 
 //ambil data kk
-$query_keluarga = "SELECT penduduk.nama, kartu_keluarga.nomor_kk FROM penduduk JOIN kartu_keluarga ON penduduk.id_pdd=kartu_keluarga.id_kepala_keluarga ";
+$query_keluarga = "SELECT penduduk.nama, kartu_keluarga.nomor_kk FROM penduduk JOIN kartu_keluarga ON penduduk.id_pdd=kartu_keluarga.id_kepala_keluarga";
 
 $hasil_keluarga = mysqli_query($db, $query_keluarga);
 
@@ -15,7 +15,7 @@ while ($row_keluarga = mysqli_fetch_assoc($hasil_keluarga)){
 }
 
 //ambil penduduk
-$query = "SELECT nama,nik,id_pdd FROM penduduk WHERE status<> 'Pindah Keluar'";
+$query = "SELECT nama,nik,id_pdd FROM penduduk WHERE status_kependudukan <> 'Keluar'";
 
 $hasil = mysqli_query($db, $query);
 

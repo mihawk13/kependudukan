@@ -19,7 +19,7 @@
     <label class="col-md-3 control-label" for="no_nama_kk">Pencarian Data Penduduk</label>
     <div class="col-md-9">
       <span class="help-block">
-        <select class="form-control selectlive" name="nama_kepala_keluarga" id="isian" required>
+        <select class="form-control selectlive" id="isian">
           <option value="" selected disabled>- cari -</option>
           <?php foreach ($data as $pdd) : ?>
             <option value="<?php echo $pdd['nik'] ?>" nik="<?php echo $pdd['nik'] ?>" id_pdd="<?php echo $pdd['id_pdd'] ?>" nama="<?php echo $pdd['nama'] ?>">
@@ -47,7 +47,7 @@
     <div class="col-md-9">
       <span class="help-block">
         <input id="nik_sementara" name="nik_sementara" type="text" placeholder="NIK" class="form-control input-md" value="<?= $datakmt[0]['nik'] ?>" readonly />
-        <input type="hidden" class="form-control input-md" name="id_pdd" id="id_pdd" size="50" />
+        <input type="hidden" name="id_pdd" id="id_pdd" value="<?= $datakmt[0]['id_pdd'] ?>" />
         <input type="hidden" class="form-control input-md" name="NIK" id="nik" size="50" />
       </span>
     </div>

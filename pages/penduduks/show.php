@@ -136,9 +136,9 @@ if($data_kk[]=!NULL){
     <td><?php echo $data[0]['pekerjaan'] ?></td>
   </tr>
   <tr>
-    <th>Status Tinggal</th>
+    <th>Status</th>
     <td>:</td>
-    <td><?php echo $data[0]['status'] ?></td>
+    <td><?php echo $data[0]['status_kependudukan'] ?></td>
   </tr>
 </table>
 

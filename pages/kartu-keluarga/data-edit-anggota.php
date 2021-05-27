@@ -19,7 +19,7 @@ while ($row = mysqli_fetch_assoc($hasil)) {
 $query_anggota = "SELECT *
 from penduduk INNER JOIN penduduk_has_kartu_keluarga
 ON penduduk_has_kartu_keluarga.id_pdd = penduduk.id_pdd
-WHERE penduduk.status != 'Meninggal' AND penduduk_has_kartu_keluarga.id_keluarga = $get_id_keluarga";
+WHERE penduduk.status_kependudukan != 'Meninggal' AND penduduk_has_kartu_keluarga.id_keluarga = $get_id_keluarga";
 
 $hasil_anggota = mysqli_query($db, $query_anggota);
 

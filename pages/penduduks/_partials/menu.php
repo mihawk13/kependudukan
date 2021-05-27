@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
-      <?php if ($_SESSION['user']['status_user'] != 'RW'): ?>
+      <?php if ($_SESSION['user']['status'] != 'RW'): ?>
       <div class="col-md-2">
         <a href="create.php" class="btn btn-success">
           <i class="fa fa-plus-square"></i> Tambah

@@ -189,7 +189,7 @@
       <td>:</td>
       <td>
         <select class="form-control selectpicker" name="status" required>
-          <option value="<?php echo $data[0]['status'] ?>" selected><?php echo $data[0]['status'] ?></option>
+          <option value="<?php echo $data[0]['status'] ?>" selected><?php echo $data[0]['status_perkawinan'] ?></option>
           <option value="Kawin">Kawin</option>
           <option value="Belum Kawin">Belum Kawin</option>
         </select>

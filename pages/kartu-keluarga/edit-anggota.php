@@ -4,9 +4,9 @@
 <?php include('_partials/menu.php') ?>
 
 <?php include('data-edit-anggota.php') ?>
-<button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back()">
+<a href="../kartu-keluarga" type="button" class="btn btn-info btn-sm">
   <i class="fa fa-arrow-circle-left"></i> Kembali
-</button>
+</a>
 <hr />
 <table class="table table-striped table-middle">
   <tr>
@@ -97,7 +97,7 @@
         </td>
         <td><?php echo $anggota_keluarga['pendidikan_terakhir'] ?></td>
         <td><?php echo $anggota_keluarga['pekerjaan'] ?></td>
-        <td><?php echo $anggota_keluarga['status'] ?></td>
+        <td><?php echo $anggota_keluarga['status_perkawinan'] ?></td>
         <td>
           <!-- Single button -->
           <div class="btn-group pull-right">

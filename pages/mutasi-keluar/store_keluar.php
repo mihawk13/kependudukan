@@ -24,14 +24,15 @@ $kode_pos_mutasi = htmlspecialchars($_POST['kode_pos_mutasi']);
 
 $tanggal_pindah = htmlspecialchars($_POST['tanggal_pindah']);
 $alasan_pindah = htmlspecialchars($_POST['alasan_pindah']);
-$jenis_pindah = htmlspecialchars($_POST['jenis_pindah']);
 
 // masukkan ke database
 
-$query = "INSERT INTO mutasi_keluar (id_pdd, alamat_mutasi, desa_kelurahan_mutasi, kecamatan_mutasi, kabupaten_kota_mutasi, provinsi_mutasi, negara_mutasi, rt_mutasi, rw_mutasi, kode_pos_mutasi, tanggal_pindah, alasan_pindah, jenis_pindah) VALUES ('$id_pdd','$alamat_mutasi','$desa_kelurahan_mutasi', '$kecamatan_mutasi', '$kabupaten_kota_mutasi', '$provinsi_mutasi', '$negara_mutasi', '$rt_mutasi', '$rw_mutasi', '$kode_pos_mutasi','$tanggal_pindah','$alasan_pindah','$jenis_pindah');";
+$query = "INSERT INTO mutasi_keluar (id_pdd, alamat_mutasi, desa_kelurahan_mutasi, kecamatan_mutasi, kabupaten_kota_mutasi, provinsi_mutasi, negara_mutasi, rt_mutasi, rw_mutasi, kode_pos_mutasi, tanggal_pindah, alasan_pindah) VALUES ('$id_pdd','$alamat_mutasi','$desa_kelurahan_mutasi', '$kecamatan_mutasi', '$kabupaten_kota_mutasi', '$provinsi_mutasi', '$negara_mutasi', '$rt_mutasi', '$rw_mutasi', '$kode_pos_mutasi','$tanggal_pindah','$alasan_pindah');";
 
+mysqli_query($db, $query);
 
-$hasil = mysqli_query($db, $query);
+$query2 = "UPDATE penduduk SET status_kependudukan = 'Keluar' WHERE id_pdd = '$id_pdd'";
+$hasil = mysqli_query($db, $query2);
 
 // cek keberhasilan pendambahan data
 if ($hasil == true) {

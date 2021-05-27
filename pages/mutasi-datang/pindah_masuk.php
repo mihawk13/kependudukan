@@ -105,6 +105,17 @@ include('../../config/koneksi.php'); ?>
       <td>:</td>
       <td><input type="text" class="form-control" name="pekerjaan"></td>
     </tr>
+  <tr>
+    <th>Status Perkawinan</th>
+    <td>:</td>
+    <td>
+      <select class="form-control selectpicker" name="status_perkawinan" required>
+        <option value="" selected disabled>- pilih -</option>
+        <option value="Kawin">Kawin</option>
+        <option value="Belum Kawin">Belum Kawin</option>
+      </select>
+    </td>
+  </tr>
   </table>
 
   <h3>Data Daerah Tujuan</h3>
@@ -165,16 +176,6 @@ include('../../config/koneksi.php'); ?>
           <option value="Kesehatan">Kesehatan</option>
           <option value="Perumahan">Perumahan</option>
           <option value="Keluarga">Keluarga</option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <th>Jenis Kepindahan</th>
-      <td>:</td>
-      <td>
-        <select class="form-control selectpicker" name="jenis_kepindahan" required>
-          <option value="Anggota Keluarga" default>Anggota Keluarga</option>
-
         </select>
       </td>
     </tr>

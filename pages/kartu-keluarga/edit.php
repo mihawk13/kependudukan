@@ -14,7 +14,8 @@
   <tr>
     <th width="20%">Nomor Kartu Keluarga</th>
     <td width="1%">:</td>
-    <td><input type="text" class="form-control" name="nomor_kk" value="<?php echo $data_keluarga[0]['nomor_kk'] ?>" readonly></td>
+    <td><input type="text" class="form-control" name="nomor_kk" value="<?php echo $data_keluarga[0]['nomor_kk'] ?>"></td>
+    <td><input type="hidden" name="id_kk" value="<?php echo $data_keluarga[0]['id_keluarga'] ?>"></td>
   </tr>
   <tr>
     <th>Kepala Keluarga</th>

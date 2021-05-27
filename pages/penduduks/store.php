@@ -38,7 +38,7 @@ if ($cek_nik) {
 } else {
 	// masukkan ke database
 
-	$query = "INSERT INTO penduduk (id_pdd, nik, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat_ktp, alamat, desa_kelurahan, kecamatan, kabupaten_kota, provinsi, negara, rt, rw, agama, pendidikan_terakhir, pekerjaan, status) VALUES (NULL, '$nik', '$nama', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$alamat_ktp', '$alamat', '$desa_kelurahan', '$kecamatan', '$kabupaten_kota', '$provinsi', '$negara', '$rt', '$rw', '$agama', '$pendidikan_terakhir', '$pekerjaan', '$status');";
+	$query = "INSERT INTO penduduk (id_pdd, nik, nama, tempat_lahir, tanggal_lahir, jenis_kelamin, alamat_ktp, alamat, desa_kelurahan, kecamatan, kabupaten_kota, provinsi, negara, rt, rw, agama, pendidikan_terakhir, pekerjaan, status_perkawinan, status_kependudukan) VALUES (NULL, '$nik', '$nama', '$tempat_lahir', '$tanggal_lahir', '$jenis_kelamin', '$alamat_ktp', '$alamat', '$desa_kelurahan', '$kecamatan', '$kabupaten_kota', '$provinsi', '$negara', '$rt', '$rw', '$agama', '$pendidikan_terakhir', '$pekerjaan', '$status', 'Penduduk Asli');";
 
 	//echo $query;
 	$hasil = mysqli_query($db, $query);

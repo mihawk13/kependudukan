@@ -10,7 +10,7 @@ function is_active($page)
 ?>
 <div class="nav navbar-sidebar">
   <ul class="nav nav-sidebar">
-    <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+    <?php if ($_SESSION['user']['status'] != 'Lurah') : ?>
       <li class="<?php is_active('dasbor'); ?>">
         <a href="../dasbor"><i class="fa fa-home"></i> Dashbord</a>
       </li>
@@ -18,7 +18,7 @@ function is_active($page)
         <a href="../penduduks"><i class="fa fa-user"></i> Data Penduduk</a>
       </li>
       <li class="<?php is_active('kartu-keluarga'); ?>">
-        <a href="../kartu-keluarga"><i class="fa fa-user fa-group"></i> Data Kartu Keluarga</a>
+        <a href="../kartu-keluarga"><i class="fa fa-group"></i> Data Kartu Keluarga</a>
       </li>
       <li class="<?php is_active('meninggal'); ?>">
         <a href="../meninggal"><i class="fa fa-ambulance"></i> Data Kematian</a>
@@ -36,7 +36,7 @@ function is_active($page)
         <a href="../user"><i class="fa fa-user"></i> Data User</a>
       </li>
     <?php endif; ?>
-    <?php if ($_SESSION['user']['status_user'] == 'Lurah') : ?>
+    <?php if ($_SESSION['user']['status'] == 'Lurah') : ?>
       <li class="<?php is_active('meninggal'); ?>">
         <a href="../meninggal"><i class="fa fa-ambulance"></i> Laporan Kematian</a>
       </li>

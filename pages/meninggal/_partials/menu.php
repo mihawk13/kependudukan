@@ -1,14 +1,14 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
-      <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+      <?php if ($_SESSION['user']['status'] != 'Lurah') : ?>
         <div class="col-md-2">
           <a href="create.php" class="btn btn-success">
             <i class="fa fa-plus-square"></i> Tambah
           </a>
         </div>
       <?php endif; ?>
-      <?php if ($_SESSION['user']['status_user'] == 'Lurah') : ?>
+      <?php if ($_SESSION['user']['status'] == 'Lurah') : ?>
         <!-- <div class="col-md-2">
           <a href="index.php" class="btn btn-info">
             <i class="fa fa-eye"></i> Lihat Data

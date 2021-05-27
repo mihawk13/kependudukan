@@ -25,7 +25,7 @@ $query="INSERT INTO tbl_meninggal (tgl_meninggal, sebab, id_pdd, tempat_kematian
 
 # echo "<br>".$query;
 
-$query2="UPDATE penduduk SET status = 'Meninggal' WHERE id_pdd = $id_pdd";
+$query2 = "UPDATE penduduk SET status_kependudukan = 'Meninggal' WHERE id_pdd = '$id_pdd'";
 
 # echo "<br>".$query2;
 

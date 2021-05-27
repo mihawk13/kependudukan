@@ -81,7 +81,7 @@
   <tr>
     <th width="20%">Diinput oleh</th>
     <td width="1%">:</td>
-    <td><?php echo $data_keluarga[0]['id_user'] ?></td>
+    <td><?php echo $data_keluarga[0]['id'] ?></td>
   </tr>
   <tr>
     <th>Diinput</th>

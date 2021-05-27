@@ -15,7 +15,7 @@ while ($row_keluarga = mysqli_fetch_assoc($hasil_keluarga)){
 }
 
 //ambil penduduk
- $query = "SELECT nama,nik,id_pdd FROM penduduk WHERE status<>'Meninggal'";
+ $query = "SELECT nama,nik,id_pdd FROM penduduk WHERE status_kependudukan <>'Meninggal'";
 # $query = "SELECT penduduk.nama, penduduk.nik, penduduk.id_pdd FROM penduduk JOIN tbl_meninggal WHERE penduduk.id_pdd<>tbl_meninggal.id_pdd";
 
 $hasil = mysqli_query($db, $query);

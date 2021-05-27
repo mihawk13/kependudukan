@@ -27,9 +27,7 @@ CREATE TABLE `kartu_keluarga` (
   PRIMARY KEY (`id_keluarga`),
   UNIQUE KEY `FK_keluarga_penduduk` (`id_kepala_keluarga`) USING BTREE,
   UNIQUE KEY `id_kepala_keluarga` (`id_kepala_keluarga`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `kartu_keluarga` */
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `mutasi_keluar` */
 
@@ -49,12 +47,9 @@ CREATE TABLE `mutasi_keluar` (
   `kode_pos_mutasi` varchar(10) NOT NULL,
   `tanggal_pindah` date NOT NULL,
   `alasan_pindah` varchar(20) NOT NULL,
-  `jenis_pindah` varchar(30) NOT NULL,
   PRIMARY KEY (`id_mutasi`),
   KEY `id_pdd` (`id_pdd`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `mutasi_keluar` */
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `mutasi_masuk` */
 
@@ -69,13 +64,10 @@ CREATE TABLE `mutasi_masuk` (
   `alamat_asal` text NOT NULL,
   `tanggal_pindah` date NOT NULL,
   `alasan_pindah` varchar(20) NOT NULL,
-  `jenis_kepindahan` varchar(30) NOT NULL,
   PRIMARY KEY (`id_mutasi_masuk`),
   KEY `id_pdd` (`id_pdd`),
   KEY `id_keluarga` (`id_kk`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `mutasi_masuk` */
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `penduduk` */
 
@@ -100,11 +92,11 @@ CREATE TABLE `penduduk` (
   `agama` enum('Islam','Kristen','Katholik','Hindu','Budha','Konghucu') NOT NULL,
   `pendidikan_terakhir` varchar(20) NOT NULL,
   `pekerjaan` varchar(20) NOT NULL,
-  `status` enum('Kawin','Belum Kawin') NOT NULL,
+  `status_perkawinan` enum('Kawin','Belum Kawin') NOT NULL,
+  `status_kependudukan` enum('Penduduk Asli','Meninggal','Pindahan','Keluar') DEFAULT NULL,
   PRIMARY KEY (`id_pdd`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
-/*Data for the table `penduduk` */
 
 /*Table structure for table `penduduk_has_kartu_keluarga` */
 
@@ -117,8 +109,6 @@ CREATE TABLE `penduduk_has_kartu_keluarga` (
   KEY `id_penduduk` (`id_pdd`,`id_keluarga`),
   KEY `penduduk_has_kartu_keluarga_ibfk_2` (`id_keluarga`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `penduduk_has_kartu_keluarga` */
 
 /*Table structure for table `tbl_kelahiran` */
 
@@ -141,9 +131,7 @@ CREATE TABLE `tbl_kelahiran` (
   PRIMARY KEY (`id_kelahiran`),
   KEY `id_pdd` (`id_pdd`),
   KEY `id_keluarga` (`id_keluarga`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `tbl_kelahiran` */
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `tbl_meninggal` */
 
@@ -159,36 +147,27 @@ CREATE TABLE `tbl_meninggal` (
   `hubungan_pelapor` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_meninggal`),
   KEY `id_pdd` (`id_pdd`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-/*Data for the table `tbl_meninggal` */
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `user` */
 
 DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
-  `id_user` int(11) NOT NULL AUTO_INCREMENT,
-  `nama_user` varchar(45) NOT NULL,
-  `username_user` varchar(20) NOT NULL,
-  `password_user` varchar(32) NOT NULL,
-  `keterangan_user` text NOT NULL,
-  `status_user` enum('Admin','Lurah') NOT NULL,
-  `desa_kelurahan_user` varchar(30) NOT NULL,
-  `kecamatan_user` varchar(30) NOT NULL,
-  `kabupaten_kota_user` varchar(30) NOT NULL,
-  `provinsi_user` varchar(30) NOT NULL,
-  `negara_user` varchar(30) NOT NULL,
-  `rt_user` varchar(3) NOT NULL,
-  `rw_user` varchar(3) NOT NULL,
-  PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(45) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `keterangan` text NOT NULL,
+  `status` enum('Admin','Lurah') NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
-insert  into `user`(`id_user`,`nama_user`,`username_user`,`password_user`,`keterangan_user`,`status_user`,`desa_kelurahan_user`,`kecamatan_user`,`kabupaten_kota_user`,`provinsi_user`,`negara_user`,`rt_user`,`rw_user`) values 
-(1,'Meisyntia','admin','21232f297a57a5a743894a0e4a801fc3','Admin di aplikasi Pendataan Penduduk','Admin','kebun jahe','binjai','medan','sumatera utara','Indonesia','001','002'),
-(14,'Lurah Wae Belang','lurah','04960f28e4129aac5bdc9da32056560d','Lurah Wae Belang','Lurah','Dolor aliqua Quia v','Quod eius proident ','Ut dolor fugiat dolo','Cupidatat excepturi ','Aut duis non sunt q','003','016');
+insert  into `user`(`nama`,`username`,`password`,`keterangan`,`status`) values 
+('Meisyntia','admin','21232f297a57a5a743894a0e4a801fc3','Admin di aplikasi Pendataan Penduduk','Admin'),
+('Lurah Wae Belang','lurah','04960f28e4129aac5bdc9da32056560d','Lurah Wae Belang','Lurah');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

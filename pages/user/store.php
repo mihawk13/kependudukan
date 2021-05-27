@@ -9,24 +9,16 @@ if (!isset($_SESSION['user'])) {
 include('../../config/koneksi.php');
 
 // ambil data dari form
-$nama_user = htmlspecialchars($_POST['nama_user']);
-$username_user = htmlspecialchars($_POST['username_user']);
-$password_user = md5(htmlspecialchars($_POST['password_user']));
-$keterangan_user = htmlspecialchars($_POST['keterangan_user']);
-$status_user = htmlspecialchars($_POST['status_user']);
-
-$desa_kelurahan_user = htmlspecialchars($_POST['desa_kelurahan_user']);
-$kecamatan_user = htmlspecialchars($_POST['kecamatan_user']);
-$kabupaten_kota_user = htmlspecialchars($_POST['kabupaten_kota_user']);
-$provinsi_user = htmlspecialchars($_POST['provinsi_user']);
-$negara_user = htmlspecialchars($_POST['negara_user']);
-$rt_user = htmlspecialchars($_POST['rt_user']);
-$rw_user = htmlspecialchars($_POST['rw_user']);
+$nama = htmlspecialchars($_POST['nama']);
+$username = htmlspecialchars($_POST['username']);
+$password = md5(htmlspecialchars($_POST['password']));
+$keterangan = htmlspecialchars($_POST['keterangan']);
+$status = htmlspecialchars($_POST['status']);
 
 
 // masukkan ke database
 
-$query = "INSERT INTO user (nama_user, username_user, password_user, keterangan_user, status_user, desa_kelurahan_user, kecamatan_user, kabupaten_kota_user, provinsi_user, negara_user, rt_user, rw_user) VALUES ('$nama_user', '$username_user', '$password_user', '$keterangan_user', '$status_user', '$desa_kelurahan_user', '$kecamatan_user', '$kabupaten_kota_user', '$provinsi_user', '$negara_user', '$rt_user', '$rw_user');";
+$query = "INSERT INTO user (nama, username, password, keterangan, status) VALUES ('$nama', '$username', '$password', '$keterangan', '$status');";
 
 $hasil = mysqli_query($db, $query);
 

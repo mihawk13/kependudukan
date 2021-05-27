@@ -54,7 +54,7 @@
             <li>
               <a href="cetak-show.php?id_keluarga=<?php echo $kartu_keluarga['id_keluarga'] ?>" target="_blank"><span class="glyphicon glyphicon-print"></span> Cetak</a>
             </li>
-            <?php if ($_SESSION['user']['status_user'] != 'RW'): ?>
+            <?php if ($_SESSION['user']['status'] != 'RW'): ?>
             <li class="divider"></li>
             <li>
               <a href="edit-anggota.php?id_keluarga=<?php echo $kartu_keluarga['id_keluarga'] ?>"><span class="glyphicon glyphicon-list"></span> Tambah Anggota Keluarga</a>

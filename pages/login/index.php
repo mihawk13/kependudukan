@@ -31,10 +31,10 @@ if (isset($_SESSION['user'])) {
           <form role="form" method="post" action="../login/proses-login.php">
             <fieldset>
               <div class="form-group">
-                <input class="form-control" placeholder="Nama Pengguna" name="username_user" type="username" required="" autofocus>
+                <input class="form-control" placeholder="Nama Pengguna" name="username" type="username" required="" autofocus>
               </div>
               <div class="form-group">
-                <input class="form-control" placeholder="Kata Sandi" name="password_user" type="password" value="" required="">
+                <input class="form-control" placeholder="Kata Sandi" name="password" type="password" value="" required="">
               </div>
               <button type="submit" class="btn btn-lg btn-primary btn-block">Masuk </button>
               <hr>
@@ -49,27 +49,4 @@ if (isset($_SESSION['user'])) {
   </div>
 
 </body>
-
-
-<!--
-<div class="row" style="margin-top: 75px">
-  <div class="col-md-4 col-md-offset-4">
-    <div class="well">
-
-      <form class="form-signin" method="post" action="../login/proses-login.php">
-        <h2 class="form-signin-heading text-center">
-          <strong>LOGIN</strong>          
-        </h2>        
-        <input type="text" name="username_user" class="form-control" placeholder="Username" autofocus required>
-
-        <input type="password" name="password_user" class="form-control" placeholder="Password" required>
-
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-          <i class="glyphicon glyphicon-log-in"></i> Log in
-        </button>
-      </form>
-    </div>
-  </div>
-</div>
--->
 <?php include('../_partials/bottom-login.php') ?>

@@ -13,6 +13,8 @@
       <th>NIK</th>
       <th>Nama Mutasi</th>
       <th>L/P</th>
+      <th>Tanggal Pindah</th>
+      <th>Alasan Pindah</th>
       <th>Status</th>
       <th>Aksi</th>
     </tr>
@@ -25,13 +27,12 @@
         <td><?php echo $mutasi['nik'] ?></td>
         <td><?php echo $mutasi['nama'] ?></td>
         <td><?php echo $mutasi['jenis_kelamin'] ?></td>
-        <!-- <td>
-        <?php echo ($mutasi['tanggal_lahir_mutasi'] != '0000-00-00') ? date('d-m-Y', strtotime($mutasi['tanggal_lahir_mutasi'])) : '' ?>
-      </td> -->
-        <td><?php echo $mutasi['status'] ?></td>
+        <td><?php echo $mutasi['tanggal_pindah'] ?></td>
+        <td><?php echo $mutasi['alasan_pindah'] ?></td>
+        <td><?php echo $mutasi['status_perkawinan'] ?></td>
         <td>
           <!-- Single button -->
-          <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+          <?php if ($_SESSION['user']['status'] != 'Lurah') : ?>
             <div class="btn-group pull-right">
               <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                 <span class="caret"></span>

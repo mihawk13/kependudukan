@@ -10,7 +10,7 @@
       <div class="col-md-12">
         <h2>
           <center><strong>
-              <font color="blue">Hai <?php echo $_SESSION['user']['nama_user']; ?></font>
+              <font color="blue">Hai <?php echo $_SESSION['user']['nama']; ?></font>
             </strong></center>
         </h2><span></span>
         <div class="col-xs-12">
@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+      <?php if ($_SESSION['user']['status'] != 'Lurah') : ?>
         <a href="../penduduks">
           <div class="panel-footer">
             <span class="pull-left">View Details</span>
@@ -69,7 +69,7 @@
           </div>
         </div>
       </div>
-      <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+      <?php if ($_SESSION['user']['status'] != 'Lurah') : ?>
         <a href="../kartu-keluarga">
           <div class="panel-footer">
             <span class="pull-left">View Details</span>
@@ -99,7 +99,7 @@
           </div>
         </div>
       </div>
-      <?php if ($_SESSION['user']['status_user'] != 'Lurah') : ?>
+      <?php if ($_SESSION['user']['status'] != 'Lurah') : ?>
         <a href="../mutasi-datang">
           <div class="panel-footer">
             <span class="pull-left">View Details</span>

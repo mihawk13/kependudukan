@@ -122,22 +122,7 @@
           <option value="Keluarga">Keluarga</option>
         </select>
       </td>
-    </tr>
-    <tr>
-      <th>Jenis Kepindahan</th>
-      <td>:</td>
-      <td>
-        <select class="form-control selectpicker" name="jenis_pindah" required>
-          <!--
-        <option value="" selected disabled>- pilih -</option>
-        <option value="Kep.Keluarga">Kep.Keluarga</option>
-        <option value="Kep.Keluarga dan Seluruh Angota">Kep.Keluarga dan Seluruh Angota</option>
-      -->
-          <option value="Anggota Keluarga" default>Anggota Keluarga</option>
-
-        </select>
-      </td>
-    </tr>
+    </tr>    
   </table>
 
   <button type="submit" class="btn btn-success">

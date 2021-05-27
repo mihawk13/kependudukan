@@ -9,30 +9,22 @@ if (!isset($_SESSION['user'])) {
 include('../../config/koneksi.php');
 
 // ambil data dari form
-$nama_user = htmlspecialchars($_POST['nama_user']);
-$username_user = htmlspecialchars($_POST['username_user']);
-$password_user = md5(htmlspecialchars($_POST['password_user']));
-$keterangan_user = htmlspecialchars($_POST['keterangan_user']);
-$status_user = htmlspecialchars($_POST['status_user']);
+$nama = htmlspecialchars($_POST['nama']);
+$username = htmlspecialchars($_POST['username']);
+$password = md5(htmlspecialchars($_POST['password']));
+$keterangan = htmlspecialchars($_POST['keterangan']);
+$status = htmlspecialchars($_POST['status']);
 
-$desa_kelurahan_user = htmlspecialchars($_POST['desa_kelurahan_user']);
-$kecamatan_user = htmlspecialchars($_POST['kecamatan_user']);
-$kabupaten_kota_user = htmlspecialchars($_POST['kabupaten_kota_user']);
-$provinsi_user = htmlspecialchars($_POST['provinsi_user']);
-$negara_user = htmlspecialchars($_POST['negara_user']);
-$rt_user = htmlspecialchars($_POST['rt_user']);
-$rw_user = htmlspecialchars($_POST['rw_user']);
+$id = htmlspecialchars($_POST['id']);
 
-$id_user = htmlspecialchars($_POST['id_user']);
-
-if ($_POST['password_user'] == '') {
+if ($_POST['password'] == '') {
   // jika tidak ubah password
 
-  $query = "UPDATE user SET nama_user = '$nama_user', username_user = '$username_user', keterangan_user = '$keterangan_user', status_user = '$status_user', desa_kelurahan_user = '$desa_kelurahan_user', kecamatan_user = '$kecamatan_user', kabupaten_kota_user = '$kabupaten_kota_user', provinsi_user = '$provinsi_user', negara_user = '$negara_user', rt_user = '$rt_user', rw_user = '$rw_user' WHERE user.id_user = $id_user;";
+  $query = "UPDATE user SET nama = '$nama', username = '$username', keterangan = '$keterangan', status = '$status' WHERE id = $id;";
 } else {
   // jika ubah password
 
-  $query = "UPDATE user SET nama_user = '$nama_user', username_user = '$username_user', password_user = '$password_user', keterangan_user = '$keterangan_user', status_user = '$status_user', desa_kelurahan_user = '$desa_kelurahan_user', kecamatan_user = '$kecamatan_user', kabupaten_kota_user = '$kabupaten_kota_user', provinsi_user = '$provinsi_user', negara_user = '$negara_user', rt_user = '$rt_user', rw_user = '$rw_user' WHERE user.id_user = $id_user;";
+  $query = "UPDATE user SET nama = '$nama', username = '$username', password = '$password', keterangan = '$keterangan', status = '$status' WHERE id = $id;";
 }
 
 $hasil = mysqli_query($db, $query);

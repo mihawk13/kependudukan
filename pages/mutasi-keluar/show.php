@@ -53,7 +53,7 @@
   <tr>
     <th>Status Tinggal</th>
     <td>:</td>
-    <td><?php echo $data[0]['status'] ?></td>
+    <td><?php echo $data[0]['status_kependudukan'] ?></td>
   </tr>
 </table>
 

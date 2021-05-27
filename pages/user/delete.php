@@ -9,16 +9,16 @@ if (!isset($_SESSION['user'])) {
 include('../../config/koneksi.php');
 
 // ambil data dari form
-$id_user = htmlspecialchars($_GET['id_user']);
+$id = htmlspecialchars($_GET['id']);
 
 // cegah hapus data sendiri
-if ($_SESSION['user']['id_user'] == $id_user) {
+if ($_SESSION['user']['id'] == $id) {
   echo "<script>window.alert('Tidak dapat menghapus data sendiri!'); window.location.href='../user'</script>";
   exit;
 }
 
 // delete database
-$query = "DELETE FROM user WHERE id_user = $id_user";
+$query = "DELETE FROM user WHERE id = $id";
 
 $hasil = mysqli_query($db, $query);
 
