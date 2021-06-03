@@ -25,17 +25,17 @@
     <?php $nomor = 1; ?>
     <?php foreach ($data as $pdd) : ?>
       <tr>
-        <td><?php echo $nomor++ ?>.</td>
-        <td><?php echo $pdd['nik'] ?></td>
-        <td><?php echo $pdd['nama'] ?></td>
-        <td><?php echo $pdd['jenis_kelamin'] ?></td>
+        <td><?= $nomor++ ?>.</td>
+        <td><?= $pdd['nik'] ?></td>
+        <td><?= $pdd['nama'] ?></td>
+        <td><?= $pdd['jenis_kelamin'] ?></td>
         <!-- <td>
-        <?php echo ($pdd['tanggal_lahir'] != '0000-00-00') ? date('d-m-Y', strtotime($pdd['tanggal_lahir'])) : '' ?>
+        <?= ($pdd['tanggal_lahir'] != '0000-00-00') ? date('d-m-Y', strtotime($pdd['tanggal_lahir'])) : '' ?>
       </td> -->
-        <td><?php echo $pdd['usia'] ?></td>
-        <td><?php echo $pdd['pendidikan_terakhir'] ?></td>
-        <td><?php echo $pdd['pekerjaan'] ?></td>
-        <td><?php echo $pdd['status_kependudukan'] ?></td>
+        <td><?= $pdd['usia'] ?></td>
+        <td><?= $pdd['pendidikan_terakhir'] ?></td>
+        <td><?= $pdd['pekerjaan'] ?></td>
+        <td><?= $pdd['status_kependudukan'] ?></td>
         <td>
           <!-- Single button -->
           <div class="btn-group pull-right">
@@ -43,26 +43,25 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu pull-right" role="menu">
-
-              <li class="divider"></li>
+            <?php
+            if ($pdd['ktp'] !== '0') { ?>
               <li>
-                <a href="show.php?id_pdd=<?php echo $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-sunglasses"></i> Detail</a>
+                <a target="_blank" href="<?= $pdd['ktp'] ?>"><i class="glyphicon glyphicon-picture"></i> Lihat KTP</a>
+              </li>
+            <?php } ?>
+              <li>
+                <a href="show.php?id_pdd=<?= $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-sunglasses"></i> Detail</a>
               </li>
               <li>
-                <a href="cetak-show.php?id_pdd=<?php echo $pdd['id_pdd'] ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Cetak</a>
+                <a href="cetak-show.php?id_pdd=<?= $pdd['id_pdd'] ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Cetak</a>
               </li>
               <?php if ($_SESSION['user']['status'] != 'RW') : ?>
                 <li class="divider"></li>
                 <li>
-                  <a href="edit.php?id_pdd=<?php echo $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
+                  <a href="edit.php?id_pdd=<?= $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
                 </li>
-                <!-- <li>
-              <a href="../mutasi/create.php?id_pdd=<?php echo $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-export"></i> Mutasi</a>
-            </li>
-            <li class="divider"></li> -->
-
                 <li>
-                  <a href="delete.php?id_pdd=<?php echo $pdd['id_pdd'] ?>" onclick="return confirm('Yakin hapus data ini?')">
+                  <a href="delete.php?id_pdd=<?= $pdd['id_pdd'] ?>" onclick="return confirm('Yakin hapus data ini?')">
                     <i class="glyphicon glyphicon-trash"></i> Hapus
                   </a>
                 </li>
@@ -81,19 +80,19 @@
 <div class="well">
   <dl class="dl-horizontal">
     <dt>Total Penduduk</dt>
-    <dd><?php echo $jumlah['total'] ?> orang</dd>
+    <dd><?= $jumlah['total'] ?> orang</dd>
 
     <dt>Jumlah Laki-laki</dt>
-    <dd><?php echo $jumlah_l['total'] ?> orang</dd>
+    <dd><?= $jumlah_l['total'] ?> orang</dd>
 
     <dt>Jumlah Perempuan</dt>
-    <dd><?php echo $jumlah_p['total'] ?> orang</dd>
+    <dd><?= $jumlah_p['total'] ?> orang</dd>
 
     <dt>Penduduk < 17 tahun</dt>
-    <dd><?php echo $jumlah_kd_17['total'] ?> orang</dd>
+    <dd><?= $jumlah_kd_17['total'] ?> orang</dd>
 
     <dt>Penduduk >= 17 tahun</dt>
-    <dd><?php echo $jumlah_ld_17['total'] ?> orang</dd>
+    <dd><?= $jumlah_ld_17['total'] ?> orang</dd>
   </dl>
 </div>
 

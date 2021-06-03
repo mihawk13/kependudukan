@@ -5,7 +5,7 @@
 <button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back()">
   <i class="fa fa-arrow-circle-left"></i> Kembali
 </button>
-<form action="store.php" method="post">
+<form action="store.php" method="post" enctype="multipart/form-data">
 <h3>A. Data Pribadi</h3>
 <table class="table table-striped table-middle">
   <tr>
@@ -171,6 +171,11 @@
         <option value="Belum Kawin">Belum Kawin</option>
       </select>
     </td>
+  </tr>
+  <tr>
+    <th>Upload KTP</th>
+    <td>:</td>
+    <td><input type="file" class="form-control" name="ktp" required></td>
   </tr>
 </table>
 <button type="submit" class="btn btn-success">

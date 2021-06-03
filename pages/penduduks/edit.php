@@ -8,7 +8,7 @@
   <i class="fa fa-arrow-circle-left"></i> Kembali
 </button>
 
-<form action="update.php" method="post">
+<form action="update.php" method="post" enctype="multipart/form-data">
   <h3>A. Data Pribadi</h3>
   <table class="table table-striped table-middle">
     <tr>
@@ -194,6 +194,11 @@
           <option value="Belum Kawin">Belum Kawin</option>
         </select>
       </td>
+    </tr>
+    <tr>
+      <th>Upload KTP <small>(biarkan kosong jika tidak diubah)</small></th>
+      <td>:</td>
+      <td><input type="file" class="form-control" name="ktp"></td>
     </tr>
   </table>
 

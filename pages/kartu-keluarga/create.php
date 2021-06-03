@@ -8,7 +8,7 @@
   <i class="fa fa-arrow-circle-left"></i> Kembali
 </button>
 
-<form action="store.php" method="post">
+<form action="store.php" method="post" enctype="multipart/form-data">
 <h3>A. Data Pribadi</h3>
 <table class="table table-striped table-middle">
   <tr>
@@ -29,6 +29,11 @@
         <?php endforeach ?>
       </select>
     </td>
+  </tr>
+  <tr>
+    <th>Upload Photo KK</th>
+    <td>:</td>
+    <td><input type="file" class="form-control" name="kk" required></td>
   </tr>
 </table>
 

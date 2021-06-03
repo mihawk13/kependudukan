@@ -39,19 +39,36 @@ if ($cek_kk > 0) {
 	} else {
 
 		// masukkan ke database
-		$query = "INSERT INTO kartu_keluarga (nomor_kk, id_kepala_keluarga) VALUES ('$nomor_kk', '$id_kepala_keluarga');";
 
-		$hasil = mysqli_query($db, $query);
-
-		//echo $query;
-		// id terakhir
-
-		// cek keberhasilan pendambahan data
-		if ($hasil == true) {
-			echo "<script>window.alert('Tambah kartu keluarga berhasil'); window.location.href='../kartu-keluarga/index.php'</script>";
+		$ext = strtolower(pathinfo($_FILES["kk"]["name"], PATHINFO_EXTENSION)); // upload file ext
+		$target_file = "photo_kk/" . $nomor_kk . '.' . $ext;
+		$uploadOk = 1;
+		$imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+		// Check if image file is a actual image or fake image
+		$check = getimagesize($_FILES["kk"]["tmp_name"]);
+		if ($check !== false) {
+			$uploadOk = 1;
 		} else {
-			echo "<script>window.alert('Tambah kartu keluarga gagal!'); window.history.back()'</script>";
-			echo mysqli_error($db);
+			echo "<script>window.alert('Format photo kartu keluarga yang diupload tidak disupport!'); history.back()</script>";
+			$uploadOk = 0;
+		}
+		// Check if $uploadOk is set to 0 by an error
+		if ($uploadOk == 1) {
+			if (move_uploaded_file($_FILES["kk"]["tmp_name"], $target_file)) {
+
+				$query = "INSERT INTO kartu_keluarga (nomor_kk, id_kepala_keluarga, photo_kk) VALUES ('$nomor_kk', '$id_kepala_keluarga', '$target_file');";
+
+				$hasil = mysqli_query($db, $query);
+
+				// cek keberhasilan pendambahan data
+				if ($hasil == true) {
+					echo "<script>window.alert('Tambah kartu keluarga berhasil'); window.location.href='../kartu-keluarga/index.php'</script>";
+				} else {
+					echo "<script>window.alert('Tambah kartu keluarga gagal!'); window.history.back()'</script>";
+				}
+			} else {
+				echo "<script>window.alert('Maaf terjadi kesalahan saat upload photo kartu keluarga!'); history.back()</script>";
+			}
 		}
 	}
 }
