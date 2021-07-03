@@ -1,10 +1,10 @@
 <?php include('../_partials/top.php') ?>
 
 <h1 class="page-header">Data User</h1>
-<?php include('_partials/menu.php') ?>
-
 <?php include('data-show.php') ?>
-
+<button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back()">
+  <i class="fa fa-arrow-circle-left"></i> Kembali
+</button>
 <form action="update.php" method="post">
 <h3>A. Data Pribadi</h3>
 <table class="table table-striped table-middle">
@@ -46,7 +46,7 @@
 
 <input type="hidden" name="id" value="<?php echo $data[0]['id'] ?>">
 
-<button type="submit" class="btn btn-primary btn-lg">
+<button type="submit" class="btn btn-success btn-lg">
   <i class="glyphicon glyphicon-floppy-save"></i> Simpan
 </button>
 </form>

@@ -37,7 +37,7 @@ class PDF extends FPDF
         $this->cell(10,7,'NO.',1,0,'C');
         $this->cell(30,7,'NO. KK',1,0,'C');
         $this->cell(75,7,'KEPALA KELUARGA',1,0,'C');
-        $this->cell(30,7,'NIK',1,0,'C');
+        $this->cell(30,7,'NIK KEPALA',1,0,'C');
         $this->cell(35,7,'JML. ANGGOTA',1,0,'C');
         $this->cell(98,7,'ALAMAT',1,0,'C');
         $this->cell(15,7,'RT',1,0,'C');
@@ -84,12 +84,12 @@ foreach ($data_kartu_keluarga as $kartu_keluarga) {
 
     $pdf->cell(10, 7, $nomor++ . '.', 1, 0, 'C');
     $pdf->cell(30, 7, strtoupper($kartu_keluarga['nomor_kk']), 1, 0, 'C');
-    $pdf->cell(75, 7, strtoupper($kartu_keluarga['nama']), 1, 0, 'L');
+    $pdf->cell(75, 7, strtoupper($kartu_keluarga['nama']), 1, 0, 'C');
     $pdf->cell(30, 7, strtoupper($kartu_keluarga['nik']), 1, 0, 'C');
     $pdf->cell(35, 7, strtoupper($jumlah_jumlah_anggota['total']), 1, 0, 'C');
-    $pdf->cell(98, 7, strtoupper($kartu_keluarga['alamat_keluarga']), 1, 0, 'L');
-    $pdf->cell(15, 7, strtoupper($kartu_keluarga['rt_keluarga']), 1, 0, 'C');
-    $pdf->cell(15, 7, strtoupper($kartu_keluarga['rw_keluarga']), 1, 1, 'C');
+    $pdf->cell(98, 7, strtoupper($kartu_keluarga['alamat_ktp']), 1, 0, 'L');
+    $pdf->cell(15, 7, strtoupper($kartu_keluarga['rt']), 1, 0, 'C');
+    $pdf->cell(15, 7, strtoupper($kartu_keluarga['rw']), 1, 1, 'C');
 
 }
 

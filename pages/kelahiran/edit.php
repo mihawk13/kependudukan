@@ -4,7 +4,9 @@
 ?>
 <?php include('data-edit.php') ?>
 <h1 class="page-header">Ubah Kelahiran</h1>
-<?php include('_partials/menu.php') ?>
+<button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back()">
+  <i class="fa fa-arrow-circle-left"></i> Kembali
+</button>
 <form action="update.php" method="post">
   <input type="hidden" name="id_pdd" value="<?= $data_kelahiran[0]['id_pdd'] ?>" />
   <input type="hidden" name="id_kelahiran" value="<?= $data_kelahiran[0]['id_kelahiran'] ?>" />

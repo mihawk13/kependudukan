@@ -1,8 +1,9 @@
 <?php include('../_partials/top.php') ?>
 
 <h1 class="page-header">Data User</h1>
-<?php include('_partials/menu.php') ?>
-
+<button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back()">
+  <i class="fa fa-arrow-circle-left"></i> Kembali
+</button>
 <form action="store.php" method="post">
 <h3>A. Data Pribadi</h3>
 <table class="table table-striped table-middle">
@@ -39,7 +40,7 @@
   </tr>
 </table>
 
-<button type="submit" class="btn btn-primary btn-lg">
+<button type="submit" class="btn btn-success btn-lg">
   <i class="glyphicon glyphicon-floppy-save"></i> Simpan
 </button>
 </form>

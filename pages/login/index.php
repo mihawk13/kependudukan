@@ -31,10 +31,10 @@ if (isset($_SESSION['user'])) {
           <form role="form" method="post" action="../login/proses-login.php">
             <fieldset>
               <div class="form-group">
-                <input class="form-control" placeholder="Nama Pengguna" name="username" type="username" required="" autofocus>
+                <input class="form-control" placeholder="Nama Pengguna" name="username" type="text" required autofocus>
               </div>
               <div class="form-group">
-                <input class="form-control" placeholder="Kata Sandi" name="password" type="password" value="" required="">
+                <input class="form-control" placeholder="Kata Sandi" name="password" type="password" required>
               </div>
               <button type="submit" class="btn btn-lg btn-primary btn-block">Masuk </button>
               <hr>

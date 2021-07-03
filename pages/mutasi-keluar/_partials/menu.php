@@ -4,7 +4,7 @@
       <?php if ($_SESSION['user']['status'] != 'Lurah') : ?>
         <div class="col-md-2">
           <a href="pindah_keluar.php" class="btn btn-success">
-            <i class="fa fa-plus"></i> Pindah Keluar
+            <i class="fa fa-plus-square"></i> Pindah Keluar
           </a>
         </div>
       <?php endif; ?>

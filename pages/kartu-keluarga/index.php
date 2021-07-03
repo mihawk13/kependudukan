@@ -16,7 +16,9 @@
       <th>Alamat</th>
       <th>RT</th>
       <th>RW</th>
-      <th>Aksi</th>
+      <?php if ($_SESSION['user']['status'] != 'Lurah') { ?>
+        <th>Aksi</th>
+      <?php } ?>
     </tr>
   </thead>
   <tbody>
@@ -39,20 +41,20 @@
         <td><?php echo $kartu_keluarga['alamat_ktp'] ?></td>
         <td><?php echo $kartu_keluarga['rt'] ?></td>
         <td><?php echo $kartu_keluarga['rw'] ?></td>
-        <td>
-          <!-- Single button -->
-          <div class="btn-group pull-right">
-            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu">
-              <li>
-                <a target="_blank" href="<?= $kartu_keluarga['photo_kk'] ?>"><i class="glyphicon glyphicon-picture"></i> Lihat KK</a>
-              </li>
-              <li>
-                <a href="cetak-show.php?id_keluarga=<?php echo $kartu_keluarga['id_keluarga'] ?>" target="_blank"><span class="glyphicon glyphicon-print"></span> Cetak</a>
-              </li>
-              <?php if ($_SESSION['user']['status'] != 'RW') : ?>
+        <?php if ($_SESSION['user']['status'] != 'Lurah') { ?>
+          <td>
+            <!-- Single button -->
+            <div class="btn-group pull-right">
+              <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                  <a target="_blank" href="<?= $kartu_keluarga['photo_kk'] ?>"><i class="glyphicon glyphicon-picture"></i> Lihat KK</a>
+                </li>
+                <li>
+                  <a href="cetak-show.php?id_keluarga=<?php echo $kartu_keluarga['id_keluarga'] ?>" target="_blank"><span class="glyphicon glyphicon-print"></span> Cetak</a>
+                </li>
                 <li class="divider"></li>
                 <li>
                   <a href="edit-anggota.php?id_keluarga=<?php echo $kartu_keluarga['id_keluarga'] ?>"><span class="glyphicon glyphicon-list"></span> Tambah Anggota Keluarga</a>
@@ -61,10 +63,10 @@
                 <li>
                   <a href="edit.php?id_keluarga=<?php echo $kartu_keluarga['id_keluarga'] ?>"><span class="glyphicon glyphicon-edit"></span> Ubah</a>
                 </li>
-              <?php endif; ?>
-            </ul>
-          </div>
-        </td>
+              </ul>
+            </div>
+          </td>
+        <?php } ?>
       </tr>
     <?php endforeach ?>
   </tbody>

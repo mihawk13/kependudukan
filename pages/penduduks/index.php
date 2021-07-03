@@ -38,37 +38,37 @@
         <td><?= $pdd['status_kependudukan'] ?></td>
         <td>
           <!-- Single button -->
+          <?php if ($_SESSION['user']['status'] != 'Lurah') { ?>
           <div class="btn-group pull-right">
             <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu pull-right" role="menu">
-            <?php
-            if ($pdd['ktp'] !== '0') { ?>
-              <li>
-                <a target="_blank" href="<?= $pdd['ktp'] ?>"><i class="glyphicon glyphicon-picture"></i> Lihat KTP</a>
-              </li>
-            <?php } ?>
+              <?php
+              if ($pdd['ktp'] !== '0') { ?>
+                <li>
+                  <a target="_blank" href="<?= $pdd['ktp'] ?>"><i class="glyphicon glyphicon-picture"></i> Lihat KTP</a>
+                </li>
+              <?php } ?>
               <li>
                 <a href="show.php?id_pdd=<?= $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-sunglasses"></i> Detail</a>
               </li>
               <li>
                 <a href="cetak-show.php?id_pdd=<?= $pdd['id_pdd'] ?>" target="_blank"><i class="glyphicon glyphicon-print"></i> Cetak</a>
               </li>
-              <?php if ($_SESSION['user']['status'] != 'RW') : ?>
-                <li class="divider"></li>
-                <li>
-                  <a href="edit.php?id_pdd=<?= $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
-                </li>
-                <li>
-                  <a href="delete.php?id_pdd=<?= $pdd['id_pdd'] ?>" onclick="return confirm('Yakin hapus data ini?')">
-                    <i class="glyphicon glyphicon-trash"></i> Hapus
-                  </a>
-                </li>
 
-              <?php endif; ?>
+              <li class="divider"></li>
+              <li>
+                <a href="edit.php?id_pdd=<?= $pdd['id_pdd'] ?>"><i class="glyphicon glyphicon-edit"></i> Ubah</a>
+              </li>
+              <li>
+                <a href="delete.php?id_pdd=<?= $pdd['id_pdd'] ?>" onclick="return confirm('Yakin hapus data ini?')">
+                  <i class="glyphicon glyphicon-trash"></i> Hapus
+                </a>
+              </li>
             </ul>
           </div>
+          <?php } ?>
         </td>
       </tr>
     <?php endforeach ?>

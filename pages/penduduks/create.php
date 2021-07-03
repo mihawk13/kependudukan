@@ -1,7 +1,6 @@
 <?php include('../_partials/top.php') ?>
 
 <h1 class="page-header">Data Penduduk</h1>
-<?php include('_partials/menu.php') ?>
 <button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back()">
   <i class="fa fa-arrow-circle-left"></i> Kembali
 </button>

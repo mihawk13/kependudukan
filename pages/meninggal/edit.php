@@ -1,7 +1,6 @@
 <?php include('../_partials/top.php') ?>
 
 <h1 class="page-header">Data Kematian</h1>
-<?php include('_partials/menu.php') ?>
 <?php include('list_keluarga.php') ?>
 <?php include('data-show.php') ?>
 <button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back()">

@@ -1,13 +1,15 @@
 <?php include('../_partials/top.php') ?>
 
 <?php include('list_keluarga.php') ?>
-<h1 class="page-header">Tambah Kematian</h1>
-<?php include('_partials/menu.php') ?>
+<h1 class="page-header">Tambah Data Kematian</h1>
+<button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back()">
+  <i class="fa fa-arrow-circle-left"></i> Kembali
+</button>
+<legend>&nbsp </legend>
 <form action="store.php" method="post">
   <label class="col-md-0 control-label" for="#">
     <h4>Data Kematian Penduduk</h4>
   </label>
-
   <div class="form-group">
     <label class="col-md-3 control-label" for="no_nama_kk">Pencarian Data Penduduk</label>
     <div class="col-md-9">

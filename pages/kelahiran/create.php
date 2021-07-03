@@ -2,7 +2,7 @@
 
 <?php include('list_keluarga.php') ?>
 <h1 class="page-header">Tambah Kelahiran</h1>
-<?php include('_partials/menu.php');
+<?php
 include('../../config/koneksi.php');
 
 $query3 = "SELECT * FROM penduduk order by id_pdd DESC";
@@ -15,6 +15,10 @@ if ($jum > 0) {
   $kode = 1;
 }
 ?>
+
+<button type="button" class="btn btn-info btn-sm" onclick="javascript:history.back()">
+  <i class="fa fa-arrow-circle-left"></i> Kembali
+</button>
 
 <form action="store.php" method="post">
   <input type="hidden" name="id_pdd" id="id_pdd" value="<?php echo $kode; ?>" />
