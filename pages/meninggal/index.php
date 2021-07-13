@@ -17,7 +17,9 @@
       <th>Tempat Kematian</th>
       <th>Nama Pelapor</th>
       <th>Hubungan Pelapor</th>
+      <?php if ($_SESSION['user']['status'] != 'Lurah') { ?>
       <th>Aksi</th>
+      <?php } ?>
     </tr>
   </thead>
   <tbody>

@@ -18,7 +18,9 @@
       <th>Pendidikan</th>
       <th>Pekerjaan</th>
       <th>Status Kependudukan</th>
+      <?php if ($_SESSION['user']['status'] != 'Lurah') { ?>
       <th>Aksi</th>
+      <?php } ?>
     </tr>
   </thead>
   <tbody>
@@ -29,9 +31,6 @@
         <td><?= $pdd['nik'] ?></td>
         <td><?= $pdd['nama'] ?></td>
         <td><?= $pdd['jenis_kelamin'] ?></td>
-        <!-- <td>
-        <?= ($pdd['tanggal_lahir'] != '0000-00-00') ? date('d-m-Y', strtotime($pdd['tanggal_lahir'])) : '' ?>
-      </td> -->
         <td><?= $pdd['usia'] ?></td>
         <td><?= $pdd['pendidikan_terakhir'] ?></td>
         <td><?= $pdd['pekerjaan'] ?></td>

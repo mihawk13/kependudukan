@@ -16,7 +16,9 @@
       <th>Tanggal Pindah</th>
       <th>Alasan Pindah</th>
       <th>Status</th>
+      <?php if ($_SESSION['user']['status'] != 'Lurah') { ?>
       <th>Aksi</th>
+      <?php } ?>
     </tr>
   </thead>
   <tbody>
