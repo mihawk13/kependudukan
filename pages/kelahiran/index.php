@@ -19,7 +19,7 @@
       <th>Nama Ibu</th>
       <th>Tempat Lahir</th>
       <?php if ($_SESSION['user']['status'] != 'Lurah') { ?>
-      <th>Aksi</th>
+        <th>Aksi</th>
       <?php } ?>
     </tr>
   </thead>
@@ -64,10 +64,20 @@
 <br><br>
 <br><br>
 
+<h4>Keterangan:</h4>
 <div class="well">
   <dl class="dl-horizontal">
     <dt>Total Kelahiran</dt>
-    <dd><?php echo $jumlah_kelahiran['total'] ?></dd>
+    <dd><?= $jumlah_kelahiran['total'] ?> anak</dd>
+
+    <dt>Laki-laki</dt>
+    <dd><?= $jumlah_kelahiran_l['total'] ?> anak</dd>
+
+    <dt>Perempuan</dt>
+    <dd><?= $jumlah_kelahiran_p['total'] ?> anak</dd>
+
+    <dt>Bulan ini</dt>
+    <dd><?= $jumlah_kelahiran_bi['total'] ?> anak</dd>
   </dl>
 </div>
 <?php include('../_partials/bottom.php') ?>

@@ -76,6 +76,7 @@
 
 <br><br>
 
+<h4>Keterangan:</h4>
 <div class="well">
   <dl class="dl-horizontal">
     <dt>Total Penduduk</dt>

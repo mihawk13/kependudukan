@@ -18,7 +18,7 @@
       <th>Nama Pelapor</th>
       <th>Hubungan Pelapor</th>
       <?php if ($_SESSION['user']['status'] != 'Lurah') { ?>
-      <th>Aksi</th>
+        <th>Aksi</th>
       <?php } ?>
     </tr>
   </thead>
@@ -62,30 +62,26 @@
 <br><br>
 <br><br>
 
+<h4>Keterangan:</h4>
 <div class="well">
   <dl class="dl-horizontal">
     <dt>Total Kematian</dt>
-    <dd><?php echo $jumlah_kematian['total'] ?></dd>
+    <dd><?= $jumlah_kematian['total'] ?> orang</dd>
+
+    <dt>Laki-laki</dt>
+    <dd><?= $jumlah_kematian_l['total'] ?> orang</dd>
+
+    <dt>Perempuan</dt>
+    <dd><?= $jumlah_kematian_p['total'] ?> orang</dd>
+
+    <dt>Usia < 17 tahun</dt>
+    <dd><?= $jumlah_kematian_kd_17['total'] ?> orang</dd>
+
+    <dt>Usia >= 17 tahun</dt>
+    <dd><?= $jumlah_kematian_ld_17['total'] ?> orang</dd>
+
+    <dt>Bulan ini</dt>
+    <dd><?= $jumlah_kematian_bi['total'] ?> orang</dd>
   </dl>
 </div>
-<!--
-<div class="well">
-  <dl class="dl-horizontal">
-    <dt>Total penduduk</dt>
-    <dd><?php echo $jumlah['total'] ?> orang</dd>
-
-    <dt>Jumlah Laki-laki</dt>
-    <dd><?php echo $jumlah_l['total'] ?> orang</dd>
-
-    <dt>Jumlah Perempuan</dt>
-    <dd><?php echo $jumlah_p['total'] ?> orang</dd>
-
-    <dt>penduduk < 17 tahun</dt>
-    <dd><?php echo $jumlah_kd_17['total'] ?> orang</dd>
-
-    <dt>penduduk >= 17 tahun</dt>
-    <dd><?php echo $jumlah_ld_17['total'] ?> orang</dd>
-  </dl>
-</div>
--->
 <?php include('../_partials/bottom.php') ?>

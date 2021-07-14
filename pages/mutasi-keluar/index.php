@@ -17,7 +17,7 @@
       <th>Pekerjaan</th>
       <th>Alasan Pindah</th>
       <?php if ($_SESSION['user']['status'] != 'Lurah') { ?>
-      <th>Aksi</th>
+        <th>Aksi</th>
       <?php } ?>
     </tr>
   </thead>
@@ -66,22 +66,26 @@
 
 <br><br>
 
+<h4>Keterangan:</h4>
 <div class="well">
   <dl class="dl-horizontal">
-    <dt>Total Mutasi</dt>
-    <dd><?php echo $jumlah_mutasi_keluar['total'] ?> orang</dd>
+    <dt>Total Penduduk Keluar</dt>
+    <dd><?= $jumlah_mutasi_keluar['total'] ?> orang</dd>
 
     <dt>Jumlah Laki-laki</dt>
-    <dd><?php echo $jumlah_mutasi_keluar_l['total'] ?> orang</dd>
+    <dd><?= $jumlah_mutasi_keluar_l['total'] ?> orang</dd>
 
     <dt>Jumlah Perempuan</dt>
-    <dd><?php echo $jumlah_mutasi_keluar_p['total'] ?> orang</dd>
+    <dd><?= $jumlah_mutasi_keluar_p['total'] ?> orang</dd>
 
     <dt>Penduduk < 17 tahun</dt>
-    <dd><?php echo $jumlah_mutasi_keluar_kd_17['total'] ?> orang</dd>
+    <dd><?= $jumlah_mutasi_keluar_kd_17['total'] ?> orang</dd>
 
     <dt>Penduduk >= 17 tahun</dt>
-    <dd><?php echo $jumlah_mutasi_keluar_ld_17['total'] ?> orang</dd>
+    <dd><?= $jumlah_mutasi_keluar_ld_17['total'] ?> orang</dd>
+
+    <dt>Bulan ini</dt>
+    <dd><?= $jumlah_keluar_bi['total'] ?> orang</dd>
   </dl>
 </div>
 
